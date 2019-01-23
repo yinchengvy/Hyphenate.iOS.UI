@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD784F68-513E-4BBD-9821-25CE41821B61}</ProjectGuid>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Hyphenate.iOS.UI</RootNamespace>
+    <AssemblyName>Hyphenate.iOS.UI</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <PackageId>Hyphenate.iOS.UI</PackageId>
+    <PackageVersion>3.5.2</PackageVersion>
+    <Authors>YinCheng</Authors>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <Owners>YinCheng</Owners>
+    <PackageProjectUrl>https://github.com/yinchengvy/Hyphenate.iOS.UI.git</PackageProjectUrl>
+    <PackageReleaseNotes>Hyphenate EaseUI Library v3.5.2</PackageReleaseNotes>
+    <PackageTags>Xamarin.iOS, Hyphenate, EaseUI</PackageTags>
+    <Title>Hyphenate.iOS.UI</Title>
+    <Description>Xamarin Binding for Hyphenate EaseUI</Description>
+    <PackOnBuild>true</PackOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Hyphenate.iOS">
+      <HintPath>..\packages\Hyphenate.iOS.Lib.3.5.2\lib\xamarinios10\Hyphenate.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Ricardo.MBProgressHUD.iOS">
+      <HintPath>..\packages\Ricardo.MBProgressHUD.iOS.1.1.0\lib\Xamarin.iOS10\Ricardo.MBProgressHUD.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Ricardo.SDWebImage.iOS">
+      <HintPath>..\packages\Ricardo.SDWebImage.iOS.4.2.2.1\lib\Xamarin.iOS10\Ricardo.SDWebImage.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Ricardo.MWPhotoBrowser.iOS">
+      <HintPath>..\packages\Ricardo.MWPhotoBrowser.iOS.2.1.4.1\lib\Xamarin.iOS10\Ricardo.MWPhotoBrowser.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="EaseUI.framework">
+      <Kind>Framework</Kind>
+      <LinkerFlags>-ObjC</LinkerFlags>
+      <Frameworks></Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets')" />
+</Project>
