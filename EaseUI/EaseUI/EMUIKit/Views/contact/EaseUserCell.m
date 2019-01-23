@@ -12,7 +12,7 @@
 
 #import "EaseUserCell.h"
 
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "EaseImageView.h"
 

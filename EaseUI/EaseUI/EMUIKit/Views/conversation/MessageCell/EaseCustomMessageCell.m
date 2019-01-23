@@ -12,8 +12,8 @@
 
 #import "EaseCustomMessageCell.h"
 
-#import "UIImageView+WebCache.h"
-#import "UIImage+GIF.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIImage+GIF.h>
 
 #import "EaseBubbleView+Gif.h"
 #import "IMessageModel.h"
