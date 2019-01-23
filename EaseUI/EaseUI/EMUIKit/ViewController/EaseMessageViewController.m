@@ -11,7 +11,11 @@
  */
 
 #import "EaseMessageViewController.h"
-
+#if ENABLE_LITE == 1
+#import <HyphenateLite/HyphenateLite.h>
+#else
+#import <Hyphenate/Hyphenate.h>
+#endif
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -117,7 +121,7 @@ typedef enum : NSUInteger {
 @synthesize messageTimeIntervalTag = _messageTimeIntervalTag;
 
 - (instancetype)initWithConversationChatter:(NSString *)conversationChatter
-                           conversationType:(EMConversationType)conversationType
+                           conversationType:(int)conversationType
 {
     if ([conversationChatter length] == 0) {
         return nil;

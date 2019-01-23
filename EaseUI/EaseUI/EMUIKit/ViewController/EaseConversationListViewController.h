@@ -15,11 +15,6 @@
 #import "EaseConversationModel.h"
 #import "EaseConversationCell.h"
 
-#if ENABLE_LITE == 1
-#import <HyphenateLite/HyphenateLite.h>
-#else
-#import <Hyphenate/Hyphenate.h>
-#endif
 
 typedef NS_ENUM(int, DXDeleteConvesationType) {
     DXDeleteConvesationOnly,
@@ -84,7 +79,7 @@ typedef NS_ENUM(int, DXDeleteConvesationType) {
 
 @end
 
-
+@protocol EMChatManagerDelegate,EMGroupManagerDelegate;
 @interface EaseConversationListViewController : EaseRefreshTableViewController <EMChatManagerDelegate,EMGroupManagerDelegate>
 
 @property (weak, nonatomic) id<EaseConversationListViewControllerDelegate> delegate;

@@ -14,11 +14,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#if ENABLE_LITE == 1
-#import <HyphenateLite/HyphenateLite.h>
-#else
-#import <Hyphenate/Hyphenate.h>
-#endif
 
 /** @brief 登录状态变更的通知 */
 #define KNOTIFICATION_LOGINCHANGE @"loginStateChange"
@@ -33,6 +28,8 @@
 /** @brief 使用的SDK是否为Lite版本(即不包含实时音视频功能) */
 #define kEaseUISDKConfigIsUseLite @"isUselibHyphenateClientSDKLite"
 
+@protocol EMClientDelegate;
+@class EMMessage;
 @interface EaseSDKHelper : NSObject<EMClientDelegate>
 
 /** @brief 当前是否有imagePickerViewController弹出 */
@@ -85,7 +82,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo;
  */
 + (EMMessage *)getTextMessage:(NSString *)text
                            to:(NSString *)to
-                  messageType:(EMChatType)messageType
+                  messageType:(int)messageType
                    messageExt:(NSDictionary *)messageExt;
 
 /*!
@@ -101,7 +98,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo;
  */
 + (EMMessage *)getCmdMessage:(NSString *)action
                           to:(NSString *)to
-                 messageType:(EMChatType)messageType
+                 messageType:(int)messageType
                   messageExt:(NSDictionary *)messageExt
                    cmdParams:(NSArray *)params;
 
@@ -121,7 +118,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo;
                                     longitude:(double)longitude
                                       address:(NSString *)address
                                            to:(NSString *)to
-                                  messageType:(EMChatType)messageType
+                                  messageType:(int)messageType
                                    messageExt:(NSDictionary *)messageExt;
 
 /*!
@@ -136,7 +133,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo;
  */
 + (EMMessage *)getImageMessageWithImageData:(NSData *)imageData
                                          to:(NSString *)to
-                                messageType:(EMChatType)messageType
+                                messageType:(int)messageType
                                  messageExt:(NSDictionary *)messageExt;
 
 /*!
@@ -151,7 +148,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo;
  */
 + (EMMessage *)getImageMessageWithImage:(UIImage *)image
                                      to:(NSString *)to
-                            messageType:(EMChatType)messageType
+                            messageType:(int)messageType
                              messageExt:(NSDictionary *)messageExt;
 
 /*!
@@ -168,7 +165,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo;
 + (EMMessage *)getVoiceMessageWithLocalPath:(NSString *)localPath
                                    duration:(NSInteger)duration
                                          to:(NSString *)to
-                                messageType:(EMChatType)messageType
+                                messageType:(int)messageType
                                  messageExt:(NSDictionary *)messageExt;
 
 /*!
@@ -183,7 +180,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo;
  */
 + (EMMessage *)getVideoMessageWithURL:(NSURL *)url
                                    to:(NSString *)to
-                          messageType:(EMChatType)messageType
+                          messageType:(int)messageType
                            messageExt:(NSDictionary *)messageExt;
 
 #pragma mark - call

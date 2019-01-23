@@ -11,6 +11,12 @@
  */
 
 #import "EaseMessageModel.h"
+#import "IMessageModel.h"
+#if ENABLE_LITE == 1
+#import <HyphenateLite/HyphenateLite.h>
+#else
+#import <Hyphenate/Hyphenate.h>
+#endif
 
 #import "EaseEmotionEscape.h"
 #import "EaseConvertToCommonEmoticonsHelper.h"

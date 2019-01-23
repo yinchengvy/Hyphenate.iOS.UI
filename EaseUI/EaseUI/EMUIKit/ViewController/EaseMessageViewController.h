@@ -161,7 +161,7 @@ typedef void(^EaseSelectAtTargetCallback)(EaseAtTarget*);
  @result
  */
 - (id)messageViewController:(EaseMessageViewController *)viewController
-                  progressDelegateForMessageBodyType:(EMMessageBodyType)messageBodyType;
+                  progressDelegateForMessageBodyType:(int)messageBodyType;
 
 /*!
  @method
@@ -298,6 +298,8 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
 - (void)messageViewControllerMarkAllMessagesAsRead:(EaseMessageViewController *)viewController;
 
 @end
+@protocol EMChatManagerDelegate, EMCDDeviceManagerDelegate, EMChatToolbarDelegate, EaseChatBarMoreViewDelegate, EMLocationViewDelegate,EMChatroomManagerDelegate, EaseMessageCellDelegate;
+@class EMConversation, EMMessage;
 
 @interface EaseMessageViewController : EaseRefreshTableViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, EMChatManagerDelegate, EMCDDeviceManagerDelegate, EMChatToolbarDelegate, EaseChatBarMoreViewDelegate, EMLocationViewDelegate,EMChatroomManagerDelegate, EaseMessageCellDelegate>
 
@@ -411,7 +413,7 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
   @result
   */
 - (instancetype)initWithConversationChatter:(NSString *)conversationChatter
-                           conversationType:(EMConversationType)conversationType;
+                           conversationType:(int)conversationType;
 
 /*!
  @method
@@ -517,7 +519,7 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
  */
 - (void)showMenuViewController:(UIView *)showInView
                  andIndexPath:(NSIndexPath *)indexPath
-                  messageType:(EMMessageBodyType)messageType;
+                  messageType:(int)messageType;
 
 /*!
  @method

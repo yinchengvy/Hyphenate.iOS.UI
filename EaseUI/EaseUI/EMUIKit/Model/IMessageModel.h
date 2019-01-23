@@ -13,11 +13,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#if ENABLE_LITE == 1
-#import <HyphenateLite/HyphenateLite.h>
-#else
-#import <Hyphenate/Hyphenate.h>
-#endif
 
 @class EMMessage;
 
@@ -31,9 +26,9 @@
 /** @brief 消息id */
 @property (strong, nonatomic, readonly) NSString *messageId;
 /** @brief 消息发送状态 */
-@property (nonatomic, readonly) EMMessageStatus messageStatus;
+@property (nonatomic, readonly) int messageStatus;
 /** @brief 消息体类型 */
-@property (nonatomic, readonly) EMMessageBodyType bodyType;
+@property (nonatomic, readonly) int bodyType;
 /** @brief 消息是否已读 */
 @property (nonatomic) BOOL isMessageRead;
 /** @brief 当前登录用户是否为消息的发送方 */

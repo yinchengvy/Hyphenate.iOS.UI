@@ -11,7 +11,13 @@
  */
 
 #import <UserNotifications/UserNotifications.h>
+
 #import "EaseSDKHelper.h"
+#if ENABLE_LITE == 1
+#import <HyphenateLite/HyphenateLite.h>
+#else
+#import <Hyphenate/Hyphenate.h>
+#endif
 
 #import "EaseConvertToCommonEmoticonsHelper.h"
 

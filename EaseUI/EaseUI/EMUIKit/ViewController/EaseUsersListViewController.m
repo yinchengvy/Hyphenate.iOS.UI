@@ -14,6 +14,11 @@
 
 #import "UIViewController+HUD.h"
 #import "EaseMessageViewController.h"
+#if ENABLE_LITE == 1
+#import <HyphenateLite/HyphenateLite.h>
+#else
+#import <Hyphenate/Hyphenate.h>
+#endif
 
 @interface EaseUsersListViewController ()
 

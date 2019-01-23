@@ -12,6 +12,12 @@
 
 #import "EaseMessageReadManager.h"
 
+#if ENABLE_LITE == 1
+#import <HyphenateLite/HyphenateLite.h>
+#else
+#import <Hyphenate/Hyphenate.h>
+#endif
+
 #import <MWPhotoBrowser/MWPhotoBrowser.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
