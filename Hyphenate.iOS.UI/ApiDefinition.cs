@@ -1532,27 +1532,27 @@ namespace Hyphenate.iOS.UI
 
     // @interface EaseConversationModel : NSObject <IConversationModel>
 	[BaseType (typeof(NSObject))]
-	interface EaseConversationModel : IIConversationModel
+	interface EaseConversationModel : IConversationModel
 	{
 		// @property (readonly, nonatomic, strong) EMConversation * conversation;
 		[Export ("conversation", ArgumentSemantic.Strong)]
-		EMConversation Conversation { get; }
+		new EMConversation Conversation { get; }
 
 		// @property (nonatomic, strong) NSString * title;
 		[Export ("title", ArgumentSemantic.Strong)]
-		string Title { get; set; }
+        new string Title { get; set; }
 
 		// @property (nonatomic, strong) NSString * avatarURLPath;
 		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
-		string AvatarURLPath { get; set; }
+        new string AvatarURLPath { get; set; }
 
 		// @property (nonatomic, strong) UIImage * avatarImage;
 		[Export ("avatarImage", ArgumentSemantic.Strong)]
-		UIImage AvatarImage { get; set; }
+        new UIImage AvatarImage { get; set; }
 
 		// -(instancetype)initWithConversation:(EMConversation *)conversation;
 		[Export ("initWithConversation:")]
-		IntPtr Constructor (EMConversation conversation);
+        new IntPtr Constructor (EMConversation conversation);
 	}
 
     partial interface IEaseConversationListViewControllerDelegate {}
@@ -1578,7 +1578,7 @@ namespace Hyphenate.iOS.UI
 		// @required -(id<IConversationModel>)conversationListViewController:(EaseConversationListViewController *)conversationListViewController modelForConversation:(EMConversation *)conversation;
 		[Abstract]
 		[Export ("conversationListViewController:modelForConversation:")]
-		IConversationModel ConversationListViewController_modelForConversation (EaseConversationListViewController conversationListViewController, EMConversation conversation);
+		IIConversationModel ConversationListViewController_modelForConversation (EaseConversationListViewController conversationListViewController, EMConversation conversation);
 
 		// @optional -(NSAttributedString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController latestMessageTitleForConversationModel:(id<IConversationModel>)conversationModel;
 		[Export ("conversationListViewController:latestMessageTitleForConversationModel:")]
@@ -1600,9 +1600,12 @@ namespace Hyphenate.iOS.UI
 		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
 		NSObject WeakDelegate { get; set; }
 
-		// @property (nonatomic, weak) id<EaseConversationListViewControllerDataSource> dataSource;
-		[Export ("dataSource", ArgumentSemantic.Weak)]
-		EaseConversationListViewControllerDataSource DataSource { get; set; }
+        [Wrap("WeakDataSource")]
+        EaseConversationListViewControllerDataSource DataSource { get; set; }
+
+        // @property (nonatomic, weak) id<EaseConversationListViewControllerDataSource> dataSource;
+        [NullAllowed, Export("dataSource", ArgumentSemantic.Weak)]
+        NSObject WeakDataSource { get; set; }
 
 		// -(void)tableViewDidTriggerHeaderRefresh;
         [Override]
@@ -2729,9 +2732,12 @@ namespace Hyphenate.iOS.UI
 		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
 		NSObject WeakDelegate { get; set; }
 
-		// @property (nonatomic, weak) id<EaseMessageViewControllerDataSource> dataSource;
-		[Export ("dataSource", ArgumentSemantic.Weak)]
-		EaseMessageViewControllerDataSource DataSource { get; set; }
+        [Wrap("WeakDataSource")]
+        EaseMessageViewControllerDataSource DataSource { get; set; }
+
+        // @property (nonatomic, weak) id<EaseMessageViewControllerDataSource> dataSource;
+        [NullAllowed, Export("dataSource", ArgumentSemantic.Weak)]
+        NSObject WeakDataSource { get; set; }
 
 		// @property (nonatomic, strong) EMConversation * conversation;
 		[Export ("conversation", ArgumentSemantic.Strong)]
@@ -3010,9 +3016,12 @@ namespace Hyphenate.iOS.UI
 		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
 		NSObject WeakDelegate { get; set; }
 
-		// @property (nonatomic, weak) id<EMUserListViewControllerDataSource> dataSource;
-		[Export ("dataSource", ArgumentSemantic.Weak)]
-		EMUserListViewControllerDataSource DataSource { get; set; }
+        [Wrap("WeakDataSource")]
+        EMUserListViewControllerDataSource DataSource { get; set; }
+
+        // @property (nonatomic, weak) id<EMUserListViewControllerDataSource> dataSource;
+        [NullAllowed, Export("dataSource", ArgumentSemantic.Weak)]
+        NSObject WeakDataSource { get; set; }
 
 		// @property (nonatomic) BOOL showSearchBar;
 		[Export ("showSearchBar")]
