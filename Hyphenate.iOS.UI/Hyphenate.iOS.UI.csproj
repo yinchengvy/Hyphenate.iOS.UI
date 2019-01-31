@@ -12,12 +12,14 @@
     <AssemblyName>Hyphenate.iOS.UI</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackageId>Hyphenate.iOS.UI</PackageId>
-    <PackageVersion>3.5.2</PackageVersion>
+    <PackageVersion>3.5.2.1</PackageVersion>
     <Authors>YinCheng</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <Owners>YinCheng</Owners>
     <PackageProjectUrl>https://github.com/yinchengvy/Hyphenate.iOS.UI.git</PackageProjectUrl>
-    <PackageReleaseNotes>Hyphenate EaseUI Library v3.5.2</PackageReleaseNotes>
+    <PackageReleaseNotes>Hyphenate EaseUI Library v3.5.2
+
+Fix some bugs(WeakDataSource)</PackageReleaseNotes>
     <PackageTags>Xamarin.iOS, Hyphenate, EaseUI</PackageTags>
     <Title>Hyphenate.iOS.UI</Title>
     <Description>Xamarin Binding for Hyphenate EaseUI</Description>
