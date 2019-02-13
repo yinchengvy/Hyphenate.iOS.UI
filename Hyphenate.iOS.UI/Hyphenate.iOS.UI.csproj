@@ -12,7 +12,7 @@
     <AssemblyName>Hyphenate.iOS.UI</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackageId>Hyphenate.iOS.UI</PackageId>
-    <PackageVersion>3.5.2.1</PackageVersion>
+    <PackageVersion>3.5.2.2</PackageVersion>
     <Authors>YinCheng</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <Owners>YinCheng</Owners>
@@ -22,7 +22,7 @@
 Fix some bugs(WeakDataSource)</PackageReleaseNotes>
     <PackageTags>Xamarin.iOS, Hyphenate, EaseUI</PackageTags>
     <Title>Hyphenate.iOS.UI</Title>
-    <Description>Xamarin Binding for Hyphenate EaseUI</Description>
+    <Description>Xamarin Binding for Hyphenate EaseUI 3.5.2(2)</Description>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,9 +45,6 @@ Fix some bugs(WeakDataSource)</PackageReleaseNotes>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Hyphenate.iOS">
-      <HintPath>..\packages\Hyphenate.iOS.Lib.3.5.2\lib\xamarinios10\Hyphenate.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="Ricardo.MBProgressHUD.iOS">
       <HintPath>..\packages\Ricardo.MBProgressHUD.iOS.1.1.0\lib\Xamarin.iOS10\Ricardo.MBProgressHUD.iOS.dll</HintPath>
     </Reference>
@@ -56,6 +53,9 @@ Fix some bugs(WeakDataSource)</PackageReleaseNotes>
     </Reference>
     <Reference Include="Ricardo.MWPhotoBrowser.iOS">
       <HintPath>..\packages\Ricardo.MWPhotoBrowser.iOS.2.1.4.1\lib\Xamarin.iOS10\Ricardo.MWPhotoBrowser.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyphenate.iOS">
+      <HintPath>..\packages\Hyphenate.iOS.Lib.3.5.2.1\lib\xamarinios10\Hyphenate.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
