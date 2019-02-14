@@ -250,7 +250,7 @@ namespace Hyphenate.iOS.UI
 	interface IModelCell
 	{
 		// @required @property (nonatomic, strong) id model;
-		[Abstract]
+		//[Abstract]
 		[Export ("model", ArgumentSemantic.Strong)]
 		NSObject Model { get; set; }
 
@@ -278,8 +278,8 @@ namespace Hyphenate.iOS.UI
 	{
 		// @required @property (nonatomic, strong) id model;
 		// [Abstract]
-		// [Export ("model", ArgumentSemantic.Strong)]
-		// NSObject Model { get; set; }
+		[Export ("model", ArgumentSemantic.Strong)]
+		new NSObject Model { get; set; }
 
 		// @optional -(BOOL)isCustomBubbleView:(id)model;
 		[Export ("isCustomBubbleView:")]
@@ -621,7 +621,7 @@ namespace Hyphenate.iOS.UI
 
     // @interface EaseMessageCell : UITableViewCell <IModelChatCell>
 	[BaseType (typeof(UITableViewCell))]
-	interface EaseMessageCell : IIModelChatCell
+	interface EaseMessageCell : IModelChatCell
 	{
 		[Wrap ("WeakDelegate")]
 		EaseMessageCellDelegate Delegate { get; set; }
@@ -656,7 +656,7 @@ namespace Hyphenate.iOS.UI
 
 		// @property (nonatomic, strong) id<IMessageModel> model;
 		[Export ("model", ArgumentSemantic.Strong)]
-		IMessageModel Model { get; set; }
+		new IIMessageModel Model { get; set; }
 
 		// @property (nonatomic) CGFloat statusSize __attribute__((annotate("ui_appearance_selector")));
 		[Export ("statusSize")]
@@ -746,17 +746,17 @@ namespace Hyphenate.iOS.UI
 
 		// -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(id<IMessageModel>)model;
 		[Export ("initWithStyle:reuseIdentifier:model:")]
-		IntPtr Constructor (UITableViewCellStyle style, string reuseIdentifier, IMessageModel model);
+		IntPtr Constructor (UITableViewCellStyle style, string reuseIdentifier, IIMessageModel model);
 
 		// +(NSString *)cellIdentifierWithModel:(id<IMessageModel>)model;
 		[Static]
 		[Export ("cellIdentifierWithModel:")]
-		string CellIdentifierWithModel (IMessageModel model);
+		string CellIdentifierWithModel (IIMessageModel model);
 
 		// +(CGFloat)cellHeightWithModel:(id<IMessageModel>)model;
 		[Static]
 		[Export ("cellHeightWithModel:")]
-		nfloat CellHeightWithModel (IMessageModel model);
+		nfloat CellHeightWithModel (IIMessageModel model);
 	}
 
     partial interface IEaseMessageCellDelegate {}
@@ -768,15 +768,15 @@ namespace Hyphenate.iOS.UI
 	{
 		// @optional -(void)messageCellSelected:(id<IMessageModel>)model;
 		[Export ("messageCellSelected:")]
-		void MessageCellSelected (IMessageModel model);
+		void MessageCellSelected (IIMessageModel model);
 
 		// @optional -(void)statusButtonSelcted:(id<IMessageModel>)model withMessageCell:(EaseMessageCell *)messageCell;
 		[Export ("statusButtonSelcted:withMessageCell:")]
-		void StatusButtonSelcted (IMessageModel model, EaseMessageCell messageCell);
+		void StatusButtonSelcted (IIMessageModel model, EaseMessageCell messageCell);
 
 		// @optional -(void)avatarViewSelcted:(id<IMessageModel>)model;
 		[Export ("avatarViewSelcted:")]
-		void AvatarViewSelcted (IMessageModel model);
+		void AvatarViewSelcted (IIMessageModel model);
 	}
 
 	// [Static]
@@ -1085,7 +1085,7 @@ namespace Hyphenate.iOS.UI
 	interface EaseFaceView : IEaseFacialViewDelegate
 	{
 		[Wrap ("WeakDelegate")]
-		IEMFaceDelegate Delegate { get; set; }
+		EMFaceDelegate Delegate { get; set; }
 
 		// @property (assign, nonatomic) id<EMFaceDelegate> delegate;
 		[NullAllowed, Export ("delegate", ArgumentSemantic.Assign)]
@@ -1421,7 +1421,7 @@ namespace Hyphenate.iOS.UI
 
     // @interface EaseConversationCell : UITableViewCell <IModelCell>
 	[BaseType (typeof(UITableViewCell))]
-	interface EaseConversationCell : IIModelCell
+	interface EaseConversationCell : IModelCell
 	{
 		// @property (nonatomic, strong) EaseImageView * avatarView;
 		[Export ("avatarView", ArgumentSemantic.Strong)]
@@ -1441,7 +1441,7 @@ namespace Hyphenate.iOS.UI
 
 		// @property (nonatomic, strong) id<IConversationModel> model;
 		[Export ("model", ArgumentSemantic.Strong)]
-		IConversationModel Model { get; set; }
+		new IIConversationModel Model { get; set; }
 
 		// @property (nonatomic) BOOL showAvatar;
 		[Export ("showAvatar")]
@@ -1565,7 +1565,7 @@ namespace Hyphenate.iOS.UI
 		// @required -(void)conversationListViewController:(EaseConversationListViewController *)conversationListViewController didSelectConversationModel:(id<IConversationModel>)conversationModel;
 		[Abstract]
 		[Export ("conversationListViewController:didSelectConversationModel:")]
-		void DidSelectConversationModel (EaseConversationListViewController conversationListViewController, IConversationModel conversationModel);
+		void DidSelectConversationModel (EaseConversationListViewController conversationListViewController, IIConversationModel conversationModel);
 	}
 
     partial interface IEaseConversationListViewControllerDataSource {}
@@ -1582,11 +1582,11 @@ namespace Hyphenate.iOS.UI
 
 		// @optional -(NSAttributedString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController latestMessageTitleForConversationModel:(id<IConversationModel>)conversationModel;
 		[Export ("conversationListViewController:latestMessageTitleForConversationModel:")]
-		NSAttributedString ConversationListViewController_latestMessageTitleForConversationModel (EaseConversationListViewController conversationListViewController, IConversationModel conversationModel);
+		NSAttributedString ConversationListViewController_latestMessageTitleForConversationModel (EaseConversationListViewController conversationListViewController, IIConversationModel conversationModel);
 
 		// @optional -(NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController latestMessageTimeForConversationModel:(id<IConversationModel>)conversationModel;
 		[Export ("conversationListViewController:latestMessageTimeForConversationModel:")]
-		string ConversationListViewController_latestMessageTimeForConversationModel (EaseConversationListViewController conversationListViewController, IConversationModel conversationModel);
+		string ConversationListViewController_latestMessageTimeForConversationModel (EaseConversationListViewController conversationListViewController, IIConversationModel conversationModel);
 	}
 
     // @interface EaseConversationListViewController : EaseRefreshTableViewController <EMChatManagerDelegate, EMGroupManagerDelegate>
@@ -2295,15 +2295,15 @@ namespace Hyphenate.iOS.UI
 
 	// @interface EaseMessageModel : NSObject <IMessageModel>
 	[BaseType (typeof(NSObject))]
-	interface EaseMessageModel : IIMessageModel
+	interface EaseMessageModel : IMessageModel
 	{
 		// @property (nonatomic) CGFloat cellHeight;
 		[Export ("cellHeight")]
-		nfloat CellHeight { get; set; }
+		new nfloat CellHeight { get; set; }
 
 		// @property (readonly, nonatomic, strong) EMMessage * message;
 		[Export ("message", ArgumentSemantic.Strong)]
-		EMMessage Message { get; }
+        new EMMessage Message { get; }
 
 		// @property (readonly, nonatomic, strong) EMMessageBody * firstMessageBody;
 		[Export ("firstMessageBody", ArgumentSemantic.Strong)]
@@ -2311,15 +2311,15 @@ namespace Hyphenate.iOS.UI
 
 		// @property (readonly, nonatomic, strong) NSString * messageId;
 		[Export ("messageId", ArgumentSemantic.Strong)]
-		string MessageId { get; }
+        new string MessageId { get; }
 
 		// @property (readonly, nonatomic) int bodyType;
 		[Export ("bodyType")]
-		int BodyType { get; }
+        new int BodyType { get; }
 
 		// @property (readonly, nonatomic) int messageStatus;
 		[Export ("messageStatus")]
-		int MessageStatus { get; }
+        new int MessageStatus { get; }
 
 		// @property (readonly, nonatomic) int messageType;
 		[Export ("messageType")]
@@ -2327,87 +2327,87 @@ namespace Hyphenate.iOS.UI
 
 		// @property (nonatomic) BOOL isMessageRead;
 		[Export ("isMessageRead")]
-		bool IsMessageRead { get; set; }
+        new bool IsMessageRead { get; set; }
 
 		// @property (nonatomic) BOOL isSender;
 		[Export ("isSender")]
-		bool IsSender { get; set; }
+        new bool IsSender { get; set; }
 
 		// @property (nonatomic, strong) NSString * nickname;
 		[Export ("nickname", ArgumentSemantic.Strong)]
-		string Nickname { get; set; }
+        new string Nickname { get; set; }
 
 		// @property (nonatomic, strong) NSString * avatarURLPath;
 		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
-		string AvatarURLPath { get; set; }
+		new string AvatarURLPath { get; set; }
 
 		// @property (nonatomic, strong) UIImage * avatarImage;
 		[Export ("avatarImage", ArgumentSemantic.Strong)]
-		UIImage AvatarImage { get; set; }
+		new UIImage AvatarImage { get; set; }
 
 		// @property (nonatomic, strong) NSString * text;
 		[Export ("text", ArgumentSemantic.Strong)]
-		string Text { get; set; }
+		new string Text { get; set; }
 
 		// @property (nonatomic, strong) NSAttributedString * attrBody;
 		[Export ("attrBody", ArgumentSemantic.Strong)]
-		NSAttributedString AttrBody { get; set; }
+		new NSAttributedString AttrBody { get; set; }
 
 		// @property (nonatomic, strong) NSString * address;
 		[Export ("address", ArgumentSemantic.Strong)]
-		string Address { get; set; }
+		new string Address { get; set; }
 
 		// @property (nonatomic) double latitude;
 		[Export ("latitude")]
-		double Latitude { get; set; }
+		new double Latitude { get; set; }
 
 		// @property (nonatomic) double longitude;
 		[Export ("longitude")]
-		double Longitude { get; set; }
+		new double Longitude { get; set; }
 
 		// @property (nonatomic, strong) NSString * failImageName;
 		[Export ("failImageName", ArgumentSemantic.Strong)]
-		string FailImageName { get; set; }
+		new string FailImageName { get; set; }
 
 		// @property (nonatomic) CGSize imageSize;
 		[Export ("imageSize", ArgumentSemantic.Assign)]
-		CGSize ImageSize { get; set; }
+		new CGSize ImageSize { get; set; }
 
 		// @property (nonatomic) CGSize thumbnailImageSize;
 		[Export ("thumbnailImageSize", ArgumentSemantic.Assign)]
-		CGSize ThumbnailImageSize { get; set; }
+		new CGSize ThumbnailImageSize { get; set; }
 
 		// @property (nonatomic, strong) UIImage * image;
 		[Export ("image", ArgumentSemantic.Strong)]
-		UIImage Image { get; set; }
+		new UIImage Image { get; set; }
 
 		// @property (nonatomic, strong) UIImage * thumbnailImage;
 		[Export ("thumbnailImage", ArgumentSemantic.Strong)]
-		UIImage ThumbnailImage { get; set; }
+		new UIImage ThumbnailImage { get; set; }
 
 		// @property (nonatomic) BOOL isMediaPlaying;
 		[Export ("isMediaPlaying")]
-		bool IsMediaPlaying { get; set; }
+		new bool IsMediaPlaying { get; set; }
 
 		// @property (nonatomic) BOOL isMediaPlayed;
 		[Export ("isMediaPlayed")]
-		bool IsMediaPlayed { get; set; }
+		new bool IsMediaPlayed { get; set; }
 
 		// @property (nonatomic) CGFloat mediaDuration;
 		[Export ("mediaDuration")]
-		nfloat MediaDuration { get; set; }
+		new nfloat MediaDuration { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileIconName;
 		[Export ("fileIconName", ArgumentSemantic.Strong)]
-		string FileIconName { get; set; }
+		new string FileIconName { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileName;
 		[Export ("fileName", ArgumentSemantic.Strong)]
-		string FileName { get; set; }
+		new string FileName { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileSizeDes;
 		[Export ("fileSizeDes", ArgumentSemantic.Strong)]
-		string FileSizeDes { get; set; }
+		new string FileSizeDes { get; set; }
 
 		// @property (nonatomic) CGFloat fileSize;
 		[Export ("fileSize")]
@@ -2415,35 +2415,35 @@ namespace Hyphenate.iOS.UI
 
 		// @property (nonatomic) float progress;
 		[Export ("progress")]
-		float Progress { get; set; }
+		new float Progress { get; set; }
 
 		// @property (readonly, nonatomic, strong) NSString * fileLocalPath;
 		[Export ("fileLocalPath", ArgumentSemantic.Strong)]
-		string FileLocalPath { get; }
+		new string FileLocalPath { get; }
 
 		// @property (nonatomic, strong) NSString * thumbnailFileLocalPath;
 		[Export ("thumbnailFileLocalPath", ArgumentSemantic.Strong)]
-		string ThumbnailFileLocalPath { get; set; }
+		new string ThumbnailFileLocalPath { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileURLPath;
 		[Export ("fileURLPath", ArgumentSemantic.Strong)]
-		string FileURLPath { get; set; }
+		new string FileURLPath { get; set; }
 
 		// @property (nonatomic, strong) NSString * thumbnailFileURLPath;
 		[Export ("thumbnailFileURLPath", ArgumentSemantic.Strong)]
-		string ThumbnailFileURLPath { get; set; }
+		new string ThumbnailFileURLPath { get; set; }
 
 		// @property (nonatomic) BOOL isDing;
 		[Export ("isDing")]
-		bool IsDing { get; set; }
+		new bool IsDing { get; set; }
 
 		// @property (nonatomic) NSInteger dingReadCount;
 		[Export ("dingReadCount")]
-		nint DingReadCount { get; set; }
+		new nint DingReadCount { get; set; }
 
 		// -(instancetype)initWithMessage:(EMMessage *)message;
 		[Export ("initWithMessage:")]
-		IntPtr Constructor (EMMessage message);
+		new IntPtr Constructor (EMMessage message);
 	}
 
 	// typedef void (^FinishBlock)(BOOL);
@@ -2625,27 +2625,27 @@ namespace Hyphenate.iOS.UI
 	{
 		// @optional -(UITableViewCell *)messageViewController:(UITableView *)tableView cellForMessageModel:(id<IMessageModel>)messageModel;
 		[Export ("messageViewController:cellForMessageModel:")]
-		UITableViewCell MessageViewController_cellForMessageModel (UITableView tableView, IMessageModel messageModel);
+		UITableViewCell MessageViewController_cellForMessageModel (UITableView tableView, IIMessageModel messageModel);
 
 		// @optional -(CGFloat)messageViewController:(EaseMessageViewController *)viewController heightForMessageModel:(id<IMessageModel>)messageModel withCellWidth:(CGFloat)cellWidth;
 		[Export ("messageViewController:heightForMessageModel:withCellWidth:")]
-		nfloat MessageViewController_heightForMessageModel_withCellWidth (EaseMessageViewController viewController, IMessageModel messageModel, nfloat cellWidth);
+		nfloat MessageViewController_heightForMessageModel_withCellWidth (EaseMessageViewController viewController, IIMessageModel messageModel, nfloat cellWidth);
 
 		// @optional -(void)messageViewController:(EaseMessageViewController *)viewController didReceiveHasReadAckForModel:(id<IMessageModel>)messageModel;
 		[Export ("messageViewController:didReceiveHasReadAckForModel:")]
-		void MessageViewController_didReceiveHasReadAckForModel (EaseMessageViewController viewController, IMessageModel messageModel);
+		void MessageViewController_didReceiveHasReadAckForModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(BOOL)messageViewController:(EaseMessageViewController *)viewController didSelectMessageModel:(id<IMessageModel>)messageModel;
 		[Export ("messageViewController:didSelectMessageModel:")]
-		bool MessageViewController_didSelectMessageModel (EaseMessageViewController viewController, IMessageModel messageModel);
+		bool MessageViewController_didSelectMessageModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(void)messageViewController:(EaseMessageViewController *)viewController didSelectAvatarMessageModel:(id<IMessageModel>)messageModel;
 		[Export ("messageViewController:didSelectAvatarMessageModel:")]
-		void MessageViewController_didSelectAvatarMessageModel (EaseMessageViewController viewController, IMessageModel messageModel);
+		void MessageViewController_didSelectAvatarMessageModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(void)messageViewController:(EaseMessageViewController *)viewController didSelectCallMessageModel:(id<IMessageModel>)messageModel;
 		[Export ("messageViewController:didSelectCallMessageModel:")]
-		void MessageViewController_didSelectCallMessageModel (EaseMessageViewController viewController, IMessageModel messageModel);
+		void MessageViewController_didSelectCallMessageModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(void)messageViewController:(EaseMessageViewController *)viewController didSelectMoreView:(EaseChatBarMoreView *)moreView AtIndex:(NSInteger)index;
 		[Export ("messageViewController:didSelectMoreView:AtIndex:")]
@@ -2673,7 +2673,7 @@ namespace Hyphenate.iOS.UI
 
 		// @optional -(void)messageViewController:(EaseMessageViewController *)viewController updateProgress:(float)progress messageModel:(id<IMessageModel>)messageModel messageBody:(EMMessageBody *)messageBody;
 		[Export ("messageViewController:updateProgress:messageModel:messageBody:")]
-		void MessageViewController_updateProgress_messageModel_messageBody (EaseMessageViewController viewController, float progress, IMessageModel messageModel, EMMessageBody messageBody);
+		void MessageViewController_updateProgress_messageModel_messageBody (EaseMessageViewController viewController, float progress, IIMessageModel messageModel, EMMessageBody messageBody);
 
 		// @optional -(NSString *)messageViewController:(EaseMessageViewController *)viewController stringForDate:(NSDate *)date;
 		[Export ("messageViewController:stringForDate:")]
@@ -2681,7 +2681,7 @@ namespace Hyphenate.iOS.UI
 
 		// @optional -(id<IMessageModel>)messageViewController:(EaseMessageViewController *)viewController modelForMessage:(EMMessage *)message;
 		[Export ("messageViewController:modelForMessage:")]
-		IMessageModel MessageViewController_modelForMessage (EaseMessageViewController viewController, EMMessage message);
+		IIMessageModel MessageViewController_modelForMessage (EaseMessageViewController viewController, EMMessage message);
 
 		// @optional -(BOOL)messageViewController:(EaseMessageViewController *)viewController canLongPressRowAtIndexPath:(NSIndexPath *)indexPath;
 		[Export ("messageViewController:canLongPressRowAtIndexPath:")]
@@ -2701,11 +2701,11 @@ namespace Hyphenate.iOS.UI
 
 		// @optional -(BOOL)isEmotionMessageFormessageViewController:(EaseMessageViewController *)viewController messageModel:(id<IMessageModel>)messageModel;
 		[Export ("isEmotionMessageFormessageViewController:messageModel:")]
-		bool IsEmotionMessageFormessageViewController_messageModel (EaseMessageViewController viewController, IMessageModel messageModel);
+		bool IsEmotionMessageFormessageViewController_messageModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(EaseEmotion *)emotionURLFormessageViewController:(EaseMessageViewController *)viewController messageModel:(id<IMessageModel>)messageModel;
 		[Export ("emotionURLFormessageViewController:messageModel:")]
-		EaseEmotion EmotionURLFormessageViewController_messageModel (EaseMessageViewController viewController, IMessageModel messageModel);
+		EaseEmotion EmotionURLFormessageViewController_messageModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(NSArray *)emotionFormessageViewController:(EaseMessageViewController *)viewController;
 		[Export ("emotionFormessageViewController:")]
@@ -2892,32 +2892,32 @@ namespace Hyphenate.iOS.UI
 
     // @interface EaseUserModel : NSObject <IUserModel>
 	[BaseType (typeof(NSObject))]
-	interface EaseUserModel : IIUserModel
+	interface EaseUserModel : IUserModel
 	{
 		// @property (readonly, nonatomic, strong) NSString * buddy;
 		[Export ("buddy", ArgumentSemantic.Strong)]
-		string Buddy { get; }
+		new string Buddy { get; }
 
 		// @property (nonatomic, strong) NSString * nickname;
 		[Export ("nickname", ArgumentSemantic.Strong)]
-		string Nickname { get; set; }
+		new string Nickname { get; set; }
 
 		// @property (nonatomic, strong) NSString * avatarURLPath;
 		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
-		string AvatarURLPath { get; set; }
+		new string AvatarURLPath { get; set; }
 
 		// @property (nonatomic, strong) UIImage * avatarImage;
 		[Export ("avatarImage", ArgumentSemantic.Strong)]
-		UIImage AvatarImage { get; set; }
+		new UIImage AvatarImage { get; set; }
 
 		// -(instancetype)initWithBuddy:(NSString *)buddy;
 		[Export ("initWithBuddy:")]
-		IntPtr Constructor (string buddy);
+		new IntPtr Constructor (string buddy);
 	}
 
     // @interface EaseUserCell : UITableViewCell <IModelCell>
 	[BaseType (typeof(UITableViewCell))]
-	interface EaseUserCell : IIModelCell
+	interface EaseUserCell : IModelCell
 	{
 		[Wrap ("WeakDelegate")]
 		EaseUserCellDelegate Delegate { get; set; }
@@ -2936,7 +2936,7 @@ namespace Hyphenate.iOS.UI
 
 		// @property (nonatomic, strong) id<IUserModel> model;
 		[Export ("model", ArgumentSemantic.Strong)]
-		IUserModel Model { get; set; }
+		new IIUserModel Model { get; set; }
 
 		// @property (nonatomic) BOOL showAvatar;
 		[Export ("showAvatar")]
@@ -2978,11 +2978,11 @@ namespace Hyphenate.iOS.UI
 		// @required -(void)userListViewController:(EaseUsersListViewController *)userListViewController didSelectUserModel:(id<IUserModel>)userModel;
 		[Abstract]
 		[Export ("userListViewController:didSelectUserModel:")]
-		void DidSelectUserModel (EaseUsersListViewController userListViewController, IUserModel userModel);
+		void DidSelectUserModel (EaseUsersListViewController userListViewController, IIUserModel userModel);
 
 		// @optional -(void)userListViewController:(EaseUsersListViewController *)userListViewController didDeleteUserModel:(id<IUserModel>)userModel;
 		[Export ("userListViewController:didDeleteUserModel:")]
-		void DidDeleteUserModel (EaseUsersListViewController userListViewController, IUserModel userModel);
+		void DidDeleteUserModel (EaseUsersListViewController userListViewController, IIUserModel userModel);
 	}
 
     partial interface IEMUserListViewControllerDataSource {}
@@ -2998,11 +2998,11 @@ namespace Hyphenate.iOS.UI
 
 		// @optional -(id<IUserModel>)userListViewController:(EaseUsersListViewController *)userListViewController modelForBuddy:(NSString *)buddy;
 		[Export ("userListViewController:modelForBuddy:")]
-		IUserModel UserListViewController (EaseUsersListViewController userListViewController, string buddy);
+		IIUserModel UserListViewController (EaseUsersListViewController userListViewController, string buddy);
 
 		// @optional -(id<IUserModel>)userListViewController:(EaseUsersListViewController *)userListViewController userModelForIndexPath:(NSIndexPath *)indexPath;
 		[Export ("userListViewController:userModelForIndexPath:")]
-		IUserModel UserListViewController (EaseUsersListViewController userListViewController, NSIndexPath indexPath);
+		IIUserModel UserListViewController (EaseUsersListViewController userListViewController, NSIndexPath indexPath);
 	}
 
 	// @interface EaseUsersListViewController : EaseRefreshTableViewController
