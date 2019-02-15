@@ -12,7 +12,7 @@
     <AssemblyName>Hyphenate.iOS.UI</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackageId>Hyphenate.iOS.UI</PackageId>
-    <PackageVersion>3.5.2.2</PackageVersion>
+    <PackageVersion>3.5.2.3</PackageVersion>
     <Authors>YinCheng</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <Owners>YinCheng</Owners>
@@ -55,7 +55,7 @@ Fix some bugs(WeakDataSource)</PackageReleaseNotes>
       <HintPath>..\packages\Ricardo.MWPhotoBrowser.iOS.2.1.4.1\lib\Xamarin.iOS10\Ricardo.MWPhotoBrowser.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Hyphenate.iOS">
-      <HintPath>..\packages\Hyphenate.iOS.Lib.3.5.2.1\lib\xamarinios10\Hyphenate.iOS.dll</HintPath>
+      <HintPath>..\packages\Hyphenate.iOS.Lib.3.5.2.2\lib\xamarinios10\Hyphenate.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

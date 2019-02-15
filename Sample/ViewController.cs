@@ -2,6 +2,8 @@
 
 using UIKit;
 using Hyphenate.iOS.UI;
+using Hyphenate.iOS.Lib;
+using Foundation;
 
 namespace Sample
 {
@@ -25,5 +27,16 @@ namespace Sample
             }, UIControlEvent.TouchUpInside);
             View.AddSubview(btn);
         }
+    }
+
+    public partial class ChatViewController : EaseMessageViewController, IEMUserListViewControllerDataSource
+    {
+        [Export("userListViewController:modelForBuddy:")]
+        public IIUserModel UserListViewController(EaseUsersListViewController userListViewController, string buddy)
+        {
+            var x = new EMVideoMessageBody();
+            return new EaseUserModel(buddy);
+        }
+
     }
 }
