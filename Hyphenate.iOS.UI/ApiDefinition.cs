@@ -28,7 +28,7 @@ namespace Hyphenate.iOS.UI
 		// +(void)asyncPlayingWithPath:(NSString *)aFilePath completion:(void (^)(NSError *))completon;
 		[Static]
 		[Export ("asyncPlayingWithPath:completion:")]
-		void AsyncPlayingWithPath_completion (string aFilePath, Action<NSError> completon);
+		void AsyncPlayingWithPath_completion (string aFilePath, [NullAllowed] Action<NSError> completon);
 
 		// +(void)stopCurrentPlaying;
 		[Static]
@@ -49,12 +49,12 @@ namespace Hyphenate.iOS.UI
 		// +(void)asyncStartRecordingWithPreparePath:(NSString *)aFilePath completion:(void (^)(NSError *))completion;
 		[Static]
 		[Export ("asyncStartRecordingWithPreparePath:completion:")]
-		void AsyncStartRecordingWithPreparePath (string aFilePath, Action<NSError> completion);
+		void AsyncStartRecordingWithPreparePath (string aFilePath, [NullAllowed] Action<NSError> completion);
 
 		// +(void)asyncStopRecordingWithCompletion:(void (^)(NSString *))completion;
 		[Static]
 		[Export ("asyncStopRecordingWithCompletion:")]
-		void AsyncStopRecordingWithCompletion (Action<NSString> completion);
+		void AsyncStopRecordingWithCompletion ([NullAllowed] Action<NSString> completion);
 
 		// +(void)cancelCurrentRecording;
 		[Static]
@@ -115,7 +115,7 @@ namespace Hyphenate.iOS.UI
 	{
 		// -(void)asyncPlayingWithPath:(NSString *)aFilePath completion:(void (^)(NSError *))completon;
 		[Export ("asyncPlayingWithPath:completion:")]
-		void AsyncPlayingWithPath (string aFilePath, Action<NSError> completon);
+		void AsyncPlayingWithPath (string aFilePath, [NullAllowed] Action<NSError> completon);
 
 		// -(void)stopPlaying;
 		[Export ("stopPlaying")]
@@ -132,11 +132,11 @@ namespace Hyphenate.iOS.UI
 
 		// -(void)asyncStartRecordingWithFileName:(NSString *)fileName completion:(void (^)(NSError *))completion;
 		[Export ("asyncStartRecordingWithFileName:completion:")]
-		void AsyncStartRecordingWithFileName (string fileName, Action<NSError> completion);
+		void AsyncStartRecordingWithFileName (string fileName, [NullAllowed] Action<NSError> completion);
 
 		// -(void)asyncStopRecordingWithCompletion:(void (^)(NSString *, NSInteger, NSError *))completion;
 		[Export ("asyncStopRecordingWithCompletion:")]
-		void AsyncStopRecordingWithCompletion (Action<NSString, nint, NSError> completion);
+		void AsyncStopRecordingWithCompletion ([NullAllowed] Action<NSString, nint, NSError> completion);
 
 		// -(void)cancelCurrentRecording;
 		[Export ("cancelCurrentRecording")]
@@ -198,7 +198,7 @@ namespace Hyphenate.iOS.UI
 
 		// -(void)sensorStateChanged:(NSNotification *)notification;
 		[Export ("sensorStateChanged:")]
-		void SensorStateChanged (NSNotification notification);
+		void SensorStateChanged ([NullAllowed] NSNotification notification);
 	}
 
     // @interface Microphone (EMCDDeviceManager)
@@ -257,16 +257,16 @@ namespace Hyphenate.iOS.UI
 		// @required +(NSString *)cellIdentifierWithModel:(id)model;
 		[Static]
 		[Export ("cellIdentifierWithModel:")]
-		string CellIdentifierWithModel (NSObject model);
+		string CellIdentifierWithModel ([NullAllowed] NSObject model);
 
 		// @required +(CGFloat)cellHeightWithModel:(id)model;
 		[Static]
 		[Export ("cellHeightWithModel:")]
-		nfloat CellHeightWithModel (NSObject model);
+		nfloat CellHeightWithModel ([NullAllowed] NSObject model);
 
 		// @optional -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(id)model;
 		[Export ("initWithStyle:reuseIdentifier:model:")]
-		IntPtr Constructor (UITableViewCellStyle style, string reuseIdentifier, NSObject model);
+		IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier, [NullAllowed] NSObject model);
 	}
 
     partial interface IIModelChatCell {}
@@ -287,19 +287,19 @@ namespace Hyphenate.iOS.UI
 
 		// @optional -(void)setCustomBubbleView:(id)model;
 		[Export ("setCustomBubbleView:")]
-		void SetCustomBubbleView (NSObject model);
+		void SetCustomBubbleView ([NullAllowed] NSObject model);
 
 		// @optional -(void)setCustomModel:(id)model;
 		[Export ("setCustomModel:")]
-		void SetCustomModel (NSObject model);
+		void SetCustomModel ([NullAllowed] NSObject model);
 
 		// @optional -(void)updateCustomBubbleViewMargin:(UIEdgeInsets)bubbleMargin model:(id)mode;
 		[Export ("updateCustomBubbleViewMargin:model:")]
-		void UpdateCustomBubbleViewMargin (UIEdgeInsets bubbleMargin, NSObject mode);
+		void UpdateCustomBubbleViewMargin (UIEdgeInsets bubbleMargin, [NullAllowed] NSObject mode);
 
 		// @optional -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(id)model;
 		[Export ("initWithStyle:reuseIdentifier:model:")]
-        new IntPtr Constructor (UITableViewCellStyle style, string reuseIdentifier, NSObject model);
+        new IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier, [NullAllowed] NSObject model);
 	}
 
     partial interface IIMessageModel {}
@@ -477,7 +477,7 @@ namespace Hyphenate.iOS.UI
 		// @required -(instancetype)initWithMessage:(EMMessage *)message;
 		// [Abstract]
 		[Export ("initWithMessage:")]
-		IntPtr Constructor (EMMessage message);
+		IntPtr Constructor ([NullAllowed] EMMessage message);
 	}
 
 	[Static]
@@ -744,19 +744,22 @@ namespace Hyphenate.iOS.UI
 		[Export ("messageFileSizeColor", ArgumentSemantic.Assign)]
 		UIColor MessageFileSizeColor { get; set; }
 
-		// -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(id<IMessageModel>)model;
-		[Export ("initWithStyle:reuseIdentifier:model:")]
-		IntPtr Constructor (UITableViewCellStyle style, string reuseIdentifier, IIMessageModel model);
+		// -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+		[Export ("initWithStyle:reuseIdentifier:")]
+		IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier);
+
+        [Export ("initWithStyle:reuseIdentifier:model:")]
+		new IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier, [NullAllowed] NSObject model);
 
 		// +(NSString *)cellIdentifierWithModel:(id<IMessageModel>)model;
 		[Static]
 		[Export ("cellIdentifierWithModel:")]
-		string CellIdentifierWithModel (IIMessageModel model);
+		string CellIdentifierWithModel ([NullAllowed] IIMessageModel model);
 
 		// +(CGFloat)cellHeightWithModel:(id<IMessageModel>)model;
 		[Static]
 		[Export ("cellHeightWithModel:")]
-		nfloat CellHeightWithModel (IIMessageModel model);
+		nfloat CellHeightWithModel ([NullAllowed] IIMessageModel model);
 	}
 
     partial interface IEaseMessageCellDelegate {}
@@ -835,6 +838,15 @@ namespace Hyphenate.iOS.UI
 		// @property (nonatomic) BOOL messageNameIsHidden __attribute__((annotate("ui_appearance_selector")));
 		[Export ("messageNameIsHidden")]
 		bool MessageNameIsHidden { get; set; }
+
+        // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+        [Export ("initWithStyle:reuseIdentifier:")]
+        new IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier);
+
+        // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(id)model;
+        [Export ("initWithStyle:reuseIdentifier:model:")]
+        new IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier, [NullAllowed] NSObject model);
+
 	}
 
 	// @interface File (EaseBubbleView)
@@ -1098,7 +1110,7 @@ namespace Hyphenate.iOS.UI
 		// -(void)setEmotionManagers:(NSArray *)emotionManagers;
 		[Export ("setEmotionManagers:")]
 		//[Verify (StronglyTypedNSArray)]
-		void SetEmotionManagers (NSObject[] emotionManagers);
+		void SetEmotionManagers ([NullAllowed] NSObject[] emotionManagers);
 	}
 
     // @interface EaseTextView : UITextView
@@ -1470,6 +1482,10 @@ namespace Hyphenate.iOS.UI
 		// @property (nonatomic) UIColor * timeLabelColor __attribute__((annotate("ui_appearance_selector")));
 		[Export ("timeLabelColor", ArgumentSemantic.Assign)]
 		UIColor TimeLabelColor { get; set; }
+
+        // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+		[Export ("initWithStyle:reuseIdentifier:")]
+		IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier);
 	}
 
     // @interface EaseRefreshTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
@@ -1619,6 +1635,10 @@ namespace Hyphenate.iOS.UI
 		// -(void)deleteCellAction:(NSIndexPath *)aIndexPath;
 		[Export ("deleteCellAction:")]
 		void DeleteCellAction (NSIndexPath aIndexPath);
+
+        // -(instancetype)initWithStyle:(UITableViewStyle)style;
+		[Export ("initWithStyle:")]
+		IntPtr Constructor (UITableViewStyle style);
 	}
 
 	// @interface EaseConvertToCommonEmoticonsHelper : NSObject
@@ -1640,6 +1660,13 @@ namespace Hyphenate.iOS.UI
 	[BaseType (typeof(EaseBaseMessageCell))]
 	interface EaseCustomMessageCell
 	{
+        // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+        [Export ("initWithStyle:reuseIdentifier:")]
+        new IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier);
+
+        // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(id)model;
+        [Export ("initWithStyle:reuseIdentifier:model:")]
+        new IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier, [NullAllowed] NSObject model);
 	}
 
     // @interface EaseEmoji : NSObject
@@ -2481,7 +2508,7 @@ namespace Hyphenate.iOS.UI
 
 		// -(BOOL)prepareMessageAudioModel:(EaseMessageModel *)messageModel updateViewCompletion:(void (^)(EaseMessageModel *, EaseMessageModel *))updateCompletion;
 		[Export ("prepareMessageAudioModel:updateViewCompletion:")]
-		bool PrepareMessageAudioModel (EaseMessageModel messageModel, Action<EaseMessageModel, EaseMessageModel> updateCompletion);
+		bool PrepareMessageAudioModel (EaseMessageModel messageModel, [NullAllowed] Action<EaseMessageModel, EaseMessageModel> updateCompletion);
 
 		// -(EaseMessageModel *)stopMessageAudioModel;
 		[Export ("stopMessageAudioModel")]
@@ -2510,6 +2537,10 @@ namespace Hyphenate.iOS.UI
 		[Export ("cellIdentifier")]
 		//[Verify (MethodToProperty)]
 		string CellIdentifier { get; }
+
+        // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+		[Export ("initWithStyle:reuseIdentifier:")]
+		IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier);
 	}
 
 	// @interface HUD (UIViewController)
@@ -2553,47 +2584,47 @@ namespace Hyphenate.iOS.UI
 
 		// -(void)hyphenateApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions appkey:(NSString *)appkey apnsCertName:(NSString *)apnsCertName otherConfig:(NSDictionary *)otherConfig;
 		[Export ("hyphenateApplication:didFinishLaunchingWithOptions:appkey:apnsCertName:otherConfig:")]
-		void HyphenateApplication (UIApplication application, NSDictionary launchOptions, string appkey, string apnsCertName, NSDictionary otherConfig);
+		void HyphenateApplication ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions, string appkey, string apnsCertName, [NullAllowed] NSDictionary otherConfig);
 
 		// -(void)hyphenateApplication:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;
 		[Export ("hyphenateApplication:didReceiveRemoteNotification:")]
-		void HyphenateApplication (UIApplication application, NSDictionary userInfo);
+		void HyphenateApplication ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary userInfo);
 
 		// +(EMMessage *)getTextMessage:(NSString *)text to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
 		[Export ("getTextMessage:to:messageType:messageExt:")]
-		EMMessage GetTextMessage (string text, string to, int messageType, NSDictionary messageExt);
+		EMMessage GetTextMessage (string text, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getCmdMessage:(NSString *)action to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt cmdParams:(NSArray *)params;
 		[Static]
 		[Export ("getCmdMessage:to:messageType:messageExt:cmdParams:")]
 		//[Verify (StronglyTypedNSArray)]
-		EMMessage GetCmdMessage (string action, string to, int messageType, NSDictionary messageExt, NSObject[] @params);
+		EMMessage GetCmdMessage (string action, string to, int messageType, [NullAllowed] NSDictionary messageExt, [NullAllowed] NSObject[] @params);
 
 		// +(EMMessage *)getLocationMessageWithLatitude:(double)latitude longitude:(double)longitude address:(NSString *)address to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
 		[Export ("getLocationMessageWithLatitude:longitude:address:to:messageType:messageExt:")]
-		EMMessage GetLocationMessageWithLatitude (double latitude, double longitude, string address, string to, int messageType, NSDictionary messageExt);
+		EMMessage GetLocationMessageWithLatitude (double latitude, double longitude, string address, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getImageMessageWithImageData:(NSData *)imageData to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
 		[Export ("getImageMessageWithImageData:to:messageType:messageExt:")]
-		EMMessage GetImageMessageWithImageData (NSData imageData, string to, int messageType, NSDictionary messageExt);
+		EMMessage GetImageMessageWithImageData (NSData imageData, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getImageMessageWithImage:(UIImage *)image to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
 		[Export ("getImageMessageWithImage:to:messageType:messageExt:")]
-		EMMessage GetImageMessageWithImage (UIImage image, string to, int messageType, NSDictionary messageExt);
+		EMMessage GetImageMessageWithImage (UIImage image, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getVoiceMessageWithLocalPath:(NSString *)localPath duration:(NSInteger)duration to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
 		[Export ("getVoiceMessageWithLocalPath:duration:to:messageType:messageExt:")]
-		EMMessage GetVoiceMessageWithLocalPath (string localPath, nint duration, string to, int messageType, NSDictionary messageExt);
+		EMMessage GetVoiceMessageWithLocalPath (string localPath, nint duration, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getVideoMessageWithURL:(NSURL *)url to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
 		[Export ("getVideoMessageWithURL:to:messageType:messageExt:")]
-		EMMessage GetVideoMessageWithURL (NSUrl url, string to, int messageType, NSDictionary messageExt);
+		EMMessage GetVideoMessageWithURL (NSUrl url, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 	}
 
 	// @interface EaseAtTarget : NSObject
@@ -2807,6 +2838,10 @@ namespace Hyphenate.iOS.UI
 		[Export ("initWithConversationChatter:conversationType:")]
 		IntPtr Constructor (string conversationChatter, int conversationType);
 
+        // -(instancetype)initWithStyle:(UITableViewStyle)style;
+        [Export ("initWithStyle:")]
+        IntPtr Constructor (UITableViewStyle style);
+
         // -(void)tableViewDidTriggerHeaderRefresh;
         [Override]
         [Export ("tableViewDidTriggerHeaderRefresh")]
@@ -2818,7 +2853,7 @@ namespace Hyphenate.iOS.UI
 
 		// -(void)sendTextMessage:(NSString *)text withExt:(NSDictionary *)ext;
 		[Export ("sendTextMessage:withExt:")]
-		void SendTextMessage (string text, NSDictionary ext);
+		void SendTextMessage (string text, [NullAllowed] NSDictionary ext);
 
 		// -(void)sendImageMessage:(UIImage *)image;
 		[Export ("sendImageMessage:")]
@@ -2953,6 +2988,10 @@ namespace Hyphenate.iOS.UI
 		// @property (nonatomic) UIColor * titleLabelColor __attribute__((annotate("ui_appearance_selector")));
 		[Export ("titleLabelColor", ArgumentSemantic.Assign)]
 		UIColor TitleLabelColor { get; set; }
+
+        // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+		[Export ("initWithStyle:reuseIdentifier:")]
+		IntPtr Constructor (UITableViewCellStyle style, [NullAllowed] string reuseIdentifier);
 	}
 
     partial interface IEaseUserCellDelegate {}
@@ -3031,6 +3070,10 @@ namespace Hyphenate.iOS.UI
         [Override]
 		[Export ("tableViewDidTriggerHeaderRefresh")]
 		void TableViewDidTriggerHeaderRefresh ();
+
+        // -(instancetype)initWithStyle:(UITableViewStyle)style;
+		[Export ("initWithStyle:")]
+		IntPtr Constructor (UITableViewStyle style);
 	}
 
     // @interface Category (NSDate)

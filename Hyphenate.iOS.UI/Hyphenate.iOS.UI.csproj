@@ -12,17 +12,20 @@
     <AssemblyName>Hyphenate.iOS.UI</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackageId>Hyphenate.iOS.UI</PackageId>
-    <PackageVersion>3.5.2.3</PackageVersion>
+    <PackageVersion>3.5.2.4</PackageVersion>
     <Authors>YinCheng</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <Owners>YinCheng</Owners>
     <PackageProjectUrl>https://github.com/yinchengvy/Hyphenate.iOS.UI.git</PackageProjectUrl>
-    <PackageReleaseNotes>Hyphenate EaseUI Library v3.5.2
+    <PackageReleaseNotes>Hyphenate EaseUI Library v3.5.4
 
-Fix some bugs(WeakDataSource)</PackageReleaseNotes>
+1. 添加WeakDataSource
+2. 解决UITableViewCell没有 "initWithStyle:reuseIdentifier"构造方法
+3. 方法形参添加[NullAllowed]修饰
+4. 解决一些协议Protocol无法被类对象进行转换的问题</PackageReleaseNotes>
     <PackageTags>Xamarin.iOS, Hyphenate, EaseUI</PackageTags>
     <Title>Hyphenate.iOS.UI</Title>
-    <Description>Xamarin Binding for Hyphenate EaseUI 3.5.2(2)</Description>
+    <Description>Xamarin Binding for Hyphenate EaseUI 3.5.2(4)</Description>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
