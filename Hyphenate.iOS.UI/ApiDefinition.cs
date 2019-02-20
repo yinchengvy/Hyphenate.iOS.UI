@@ -63,7 +63,7 @@ namespace Hyphenate.iOS.UI
 
 		// +(AVAudioRecorder *)recorder;
 		[Static]
-		[Export ("recorder")]
+		[NullAllowed, Export ("recorder")]
 		//[Verify (MethodToProperty)]
 		AVAudioRecorder Recorder ();
 	}
@@ -256,7 +256,7 @@ namespace Hyphenate.iOS.UI
 
 		// @required +(NSString *)cellIdentifierWithModel:(id)model;
 		[Static]
-		[Export ("cellIdentifierWithModel:")]
+		[NullAllowed, Export ("cellIdentifierWithModel:")]
 		string CellIdentifierWithModel ([NullAllowed] NSObject model);
 
 		// @required +(CGFloat)cellHeightWithModel:(id)model;
@@ -278,7 +278,7 @@ namespace Hyphenate.iOS.UI
 	{
 		// @required @property (nonatomic, strong) id model;
 		// [Abstract]
-		[Export ("model", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("model", ArgumentSemantic.Strong)]
 		new NSObject Model { get; set; }
 
 		// @optional -(BOOL)isCustomBubbleView:(id)model;
@@ -316,7 +316,7 @@ namespace Hyphenate.iOS.UI
 
 		// @required @property (readonly, nonatomic, strong) EMMessage * message;
 		[Abstract]
-		[Export ("message", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("message", ArgumentSemantic.Strong)]
 		EMMessage Message { get; }
 
 		// @required @property (readonly, nonatomic, strong) NSString * messageId;
@@ -351,27 +351,27 @@ namespace Hyphenate.iOS.UI
 
 		// @required @property (nonatomic, strong) NSString * avatarURLPath;
 		[Abstract]
-		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarURLPath", ArgumentSemantic.Strong)]
 		string AvatarURLPath { get; set; }
 
 		// @required @property (nonatomic, strong) UIImage * avatarImage;
 		[Abstract]
-		[Export ("avatarImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarImage", ArgumentSemantic.Strong)]
 		UIImage AvatarImage { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * text;
 		[Abstract]
-		[Export ("text", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("text", ArgumentSemantic.Strong)]
 		string Text { get; set; }
 
 		// @required @property (nonatomic, strong) NSAttributedString * attrBody;
 		[Abstract]
-		[Export ("attrBody", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("attrBody", ArgumentSemantic.Strong)]
 		NSAttributedString AttrBody { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * failImageName;
 		[Abstract]
-		[Export ("failImageName", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("failImageName", ArgumentSemantic.Strong)]
 		string FailImageName { get; set; }
 
 		// @required @property (nonatomic) CGSize imageSize;
@@ -386,17 +386,17 @@ namespace Hyphenate.iOS.UI
 
 		// @required @property (nonatomic, strong) UIImage * image;
 		[Abstract]
-		[Export ("image", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("image", ArgumentSemantic.Strong)]
 		UIImage Image { get; set; }
 
 		// @required @property (nonatomic, strong) UIImage * thumbnailImage;
 		[Abstract]
-		[Export ("thumbnailImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("thumbnailImage", ArgumentSemantic.Strong)]
 		UIImage ThumbnailImage { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * address;
 		[Abstract]
-		[Export ("address", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("address", ArgumentSemantic.Strong)]
 		string Address { get; set; }
 
 		// @required @property (nonatomic) double latitude;
@@ -426,17 +426,17 @@ namespace Hyphenate.iOS.UI
 
 		// @required @property (nonatomic, strong) NSString * fileIconName;
 		[Abstract]
-		[Export ("fileIconName", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileIconName", ArgumentSemantic.Strong)]
 		string FileIconName { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * fileName;
 		[Abstract]
-		[Export ("fileName", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileName", ArgumentSemantic.Strong)]
 		string FileName { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * fileSizeDes;
 		[Abstract]
-		[Export ("fileSizeDes", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileSizeDes", ArgumentSemantic.Strong)]
 		string FileSizeDes { get; set; }
 
 		// @required @property (nonatomic) float progress;
@@ -446,22 +446,22 @@ namespace Hyphenate.iOS.UI
 
 		// @required @property (readonly, nonatomic, strong) NSString * fileLocalPath;
 		[Abstract]
-		[Export ("fileLocalPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileLocalPath", ArgumentSemantic.Strong)]
 		string FileLocalPath { get; }
 
 		// @required @property (nonatomic, strong) NSString * thumbnailFileLocalPath;
 		[Abstract]
-		[Export ("thumbnailFileLocalPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("thumbnailFileLocalPath", ArgumentSemantic.Strong)]
 		string ThumbnailFileLocalPath { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * fileURLPath;
 		[Abstract]
-		[Export ("fileURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileURLPath", ArgumentSemantic.Strong)]
 		string FileURLPath { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * thumbnailFileURLPath;
 		[Abstract]
-		[Export ("thumbnailFileURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("thumbnailFileURLPath", ArgumentSemantic.Strong)]
 		string ThumbnailFileURLPath { get; set; }
 
 		// @required @property (nonatomic) BOOL isDing;
@@ -550,59 +550,59 @@ namespace Hyphenate.iOS.UI
 		UIEdgeInsets Margin { get; }
 
 		// @property (nonatomic, strong) NSMutableArray * marginConstraints;
-		[Export ("marginConstraints", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("marginConstraints", ArgumentSemantic.Strong)]
 		NSMutableArray MarginConstraints { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * backgroundImageView;
-		[Export ("backgroundImageView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("backgroundImageView", ArgumentSemantic.Strong)]
 		UIImageView BackgroundImageView { get; set; }
 
 		// @property (nonatomic, strong) UILabel * textLabel;
-		[Export ("textLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("textLabel", ArgumentSemantic.Strong)]
 		UILabel TextLabel { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * imageView;
-		[Export ("imageView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("imageView", ArgumentSemantic.Strong)]
 		UIImageView ImageView { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * locationImageView;
-		[Export ("locationImageView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("locationImageView", ArgumentSemantic.Strong)]
 		UIImageView LocationImageView { get; set; }
 
 		// @property (nonatomic, strong) UILabel * locationLabel;
-		[Export ("locationLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("locationLabel", ArgumentSemantic.Strong)]
 		UILabel LocationLabel { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * voiceImageView;
-		[Export ("voiceImageView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("voiceImageView", ArgumentSemantic.Strong)]
 		UIImageView VoiceImageView { get; set; }
 
 		// @property (nonatomic, strong) UILabel * voiceDurationLabel;
-		[Export ("voiceDurationLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("voiceDurationLabel", ArgumentSemantic.Strong)]
 		UILabel VoiceDurationLabel { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * isReadView;
-		[Export ("isReadView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("isReadView", ArgumentSemantic.Strong)]
 		UIImageView IsReadView { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * videoImageView;
-		[Export ("videoImageView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("videoImageView", ArgumentSemantic.Strong)]
 		UIImageView VideoImageView { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * videoTagView;
-		[Export ("videoTagView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("videoTagView", ArgumentSemantic.Strong)]
 		UIImageView VideoTagView { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * fileIconView;
-		[Export ("fileIconView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileIconView", ArgumentSemantic.Strong)]
 		UIImageView FileIconView { get; set; }
 
 		// @property (nonatomic, strong) UILabel * fileNameLabel;
-		[Export ("fileNameLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileNameLabel", ArgumentSemantic.Strong)]
 		UILabel FileNameLabel { get; set; }
 
 		// @property (nonatomic, strong) UILabel * fileSizeLabel;
-		[Export ("fileSizeLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileSizeLabel", ArgumentSemantic.Strong)]
 		UILabel FileSizeLabel { get; set; }
 
 		// -(instancetype)initWithMargin:(UIEdgeInsets)margin isSender:(BOOL)isSender;
@@ -631,31 +631,31 @@ namespace Hyphenate.iOS.UI
 		NSObject WeakDelegate { get; set; }
 
 		// @property (nonatomic, strong) UIActivityIndicatorView * activity;
-		[Export ("activity", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("activity", ArgumentSemantic.Strong)]
 		UIActivityIndicatorView Activity { get; set; }
 
 		// @property (nonatomic, strong) UIImageView * avatarView;
-		[Export ("avatarView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarView", ArgumentSemantic.Strong)]
 		UIImageView AvatarView { get; set; }
 
 		// @property (nonatomic, strong) UILabel * nameLabel;
-		[Export ("nameLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("nameLabel", ArgumentSemantic.Strong)]
 		UILabel NameLabel { get; set; }
 
 		// @property (nonatomic, strong) UIButton * statusButton;
-		[Export ("statusButton", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("statusButton", ArgumentSemantic.Strong)]
 		UIButton StatusButton { get; set; }
 
 		// @property (nonatomic, strong) UILabel * hasRead;
-		[Export ("hasRead", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("hasRead", ArgumentSemantic.Strong)]
 		UILabel HasRead { get; set; }
 
 		// @property (nonatomic, strong) EaseBubbleView * bubbleView;
-		[Export ("bubbleView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("bubbleView", ArgumentSemantic.Strong)]
 		EaseBubbleView BubbleView { get; set; }
 
 		// @property (nonatomic, strong) id<IMessageModel> model;
-		[Export ("model", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("model", ArgumentSemantic.Strong)]
 		new IIMessageModel Model { get; set; }
 
 		// @property (nonatomic) CGFloat statusSize __attribute__((annotate("ui_appearance_selector")));
@@ -683,45 +683,45 @@ namespace Hyphenate.iOS.UI
 		UIEdgeInsets RightBubbleMargin { get; set; }
 
 		// @property (nonatomic, strong) UIImage * sendBubbleBackgroundImage __attribute__((annotate("ui_appearance_selector")));
-		[Export ("sendBubbleBackgroundImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("sendBubbleBackgroundImage", ArgumentSemantic.Strong)]
 		UIImage SendBubbleBackgroundImage { get; set; }
 
 		// @property (nonatomic, strong) UIImage * recvBubbleBackgroundImage __attribute__((annotate("ui_appearance_selector")));
-		[Export ("recvBubbleBackgroundImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("recvBubbleBackgroundImage", ArgumentSemantic.Strong)]
 		UIImage RecvBubbleBackgroundImage { get; set; }
 
 		// @property (nonatomic) UIFont * messageTextFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageTextFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageTextFont", ArgumentSemantic.Assign)]
 		UIFont MessageTextFont { get; set; }
 
 		// @property (nonatomic) UIColor * messageTextColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageTextColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageTextColor", ArgumentSemantic.Assign)]
 		UIColor MessageTextColor { get; set; }
 
 		// @property (nonatomic) UIFont * messageLocationFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageLocationFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageLocationFont", ArgumentSemantic.Assign)]
 		UIFont MessageLocationFont { get; set; }
 
 		// @property (nonatomic) UIColor * messageLocationColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageLocationColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageLocationColor", ArgumentSemantic.Assign)]
 		UIColor MessageLocationColor { get; set; }
 
 		// @property (nonatomic) NSArray * sendMessageVoiceAnimationImages __attribute__((annotate("ui_appearance_selector")));
-		[Export ("sendMessageVoiceAnimationImages", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("sendMessageVoiceAnimationImages", ArgumentSemantic.Assign)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] SendMessageVoiceAnimationImages { get; set; }
 
 		// @property (nonatomic) NSArray * recvMessageVoiceAnimationImages __attribute__((annotate("ui_appearance_selector")));
-		[Export ("recvMessageVoiceAnimationImages", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("recvMessageVoiceAnimationImages", ArgumentSemantic.Assign)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] RecvMessageVoiceAnimationImages { get; set; }
 
 		// @property (nonatomic) UIColor * messageVoiceDurationColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageVoiceDurationColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageVoiceDurationColor", ArgumentSemantic.Assign)]
 		UIColor MessageVoiceDurationColor { get; set; }
 
 		// @property (nonatomic) UIFont * messageVoiceDurationFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageVoiceDurationFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageVoiceDurationFont", ArgumentSemantic.Assign)]
 		UIFont MessageVoiceDurationFont { get; set; }
 
 		// @property (nonatomic) CGFloat voiceCellWidth __attribute__((annotate("ui_appearance_selector")));
@@ -729,19 +729,19 @@ namespace Hyphenate.iOS.UI
 		nfloat VoiceCellWidth { get; set; }
 
 		// @property (nonatomic) UIFont * messageFileNameFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageFileNameFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageFileNameFont", ArgumentSemantic.Assign)]
 		UIFont MessageFileNameFont { get; set; }
 
 		// @property (nonatomic) UIColor * messageFileNameColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageFileNameColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageFileNameColor", ArgumentSemantic.Assign)]
 		UIColor MessageFileNameColor { get; set; }
 
 		// @property (nonatomic) UIFont * messageFileSizeFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageFileSizeFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageFileSizeFont", ArgumentSemantic.Assign)]
 		UIFont MessageFileSizeFont { get; set; }
 
 		// @property (nonatomic) UIColor * messageFileSizeColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageFileSizeColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageFileSizeColor", ArgumentSemantic.Assign)]
 		UIColor MessageFileSizeColor { get; set; }
 
 		// -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
@@ -753,7 +753,7 @@ namespace Hyphenate.iOS.UI
 
 		// +(NSString *)cellIdentifierWithModel:(id<IMessageModel>)model;
 		[Static]
-		[Export ("cellIdentifierWithModel:")]
+		[NullAllowed, Export ("cellIdentifierWithModel:")]
 		string CellIdentifierWithModel ([NullAllowed] IIMessageModel model);
 
 		// +(CGFloat)cellHeightWithModel:(id<IMessageModel>)model;
@@ -824,11 +824,11 @@ namespace Hyphenate.iOS.UI
 		nfloat AvatarCornerRadius { get; set; }
 
 		// @property (nonatomic) UIFont * messageNameFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageNameFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageNameFont", ArgumentSemantic.Assign)]
 		UIFont MessageNameFont { get; set; }
 
 		// @property (nonatomic) UIColor * messageNameColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("messageNameColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("messageNameColor", ArgumentSemantic.Assign)]
 		UIColor MessageNameColor { get; set; }
 
 		// @property (nonatomic) CGFloat messageNameHeight __attribute__((annotate("ui_appearance_selector")));
@@ -959,7 +959,7 @@ namespace Hyphenate.iOS.UI
 		NSObject WeakDelegate { get; set; }
 
 		// @property (nonatomic) UIColor * moreViewBackgroundColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("moreViewBackgroundColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("moreViewBackgroundColor", ArgumentSemantic.Assign)]
 		UIColor MoreViewBackgroundColor { get; set; }
 
 		// -(instancetype)initWithFrame:(CGRect)frame type:(EMChatToolbarType)type;
@@ -1055,7 +1055,7 @@ namespace Hyphenate.iOS.UI
 		NSObject WeakDelegate { get; set; }
 
 		// @property (readonly, nonatomic, strong) NSArray * faces;
-		[Export ("faces", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("faces", ArgumentSemantic.Strong)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] Faces { get; }
 
@@ -1118,11 +1118,11 @@ namespace Hyphenate.iOS.UI
 	interface EaseTextView
 	{
 		// @property (copy, nonatomic) NSString * placeHolder;
-		[Export ("placeHolder")]
+		[NullAllowed, Export ("placeHolder")]
 		string PlaceHolder { get; set; }
 
 		// @property (nonatomic, strong) UIColor * placeHolderTextColor;
-		[Export ("placeHolderTextColor", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("placeHolderTextColor", ArgumentSemantic.Strong)]
 		UIColor PlaceHolderTextColor { get; set; }
 
 		// -(NSUInteger)numberOfLinesOfText;
@@ -1147,16 +1147,16 @@ namespace Hyphenate.iOS.UI
 	interface EaseRecordView
 	{
 		// @property (nonatomic) NSArray * voiceMessageAnimationImages __attribute__((annotate("ui_appearance_selector")));
-		[Export ("voiceMessageAnimationImages", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("voiceMessageAnimationImages", ArgumentSemantic.Assign)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] VoiceMessageAnimationImages { get; set; }
 
 		// @property (nonatomic) NSString * upCancelText __attribute__((annotate("ui_appearance_selector")));
-		[Export ("upCancelText")]
+		[NullAllowed, Export ("upCancelText")]
 		string UpCancelText { get; set; }
 
 		// @property (nonatomic) NSString * loosenCancelText __attribute__((annotate("ui_appearance_selector")));
-		[Export ("loosenCancelText")]
+		[NullAllowed, Export ("loosenCancelText")]
 		string LoosenCancelText { get; set; }
 
 		// -(void)recordButtonTouchDown;
@@ -1185,11 +1185,11 @@ namespace Hyphenate.iOS.UI
 	interface EaseChatToolbarItem
 	{
 		// @property (readonly, nonatomic, strong) UIButton * button;
-		[Export ("button", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("button", ArgumentSemantic.Strong)]
 		UIButton Button { get; }
 
 		// @property (nonatomic, strong) UIView * button2View;
-		[Export ("button2View", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("button2View", ArgumentSemantic.Strong)]
 		UIView Button2View { get; set; }
 
 		// -(instancetype)initWithButton:(UIButton *)button withView:(UIView *)button2View;
@@ -1209,7 +1209,7 @@ namespace Hyphenate.iOS.UI
 		NSObject WeakDelegate { get; set; }
 
 		// @property (nonatomic) UIImage * backgroundImage;
-		[Export ("backgroundImage", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("backgroundImage", ArgumentSemantic.Assign)]
 		UIImage BackgroundImage { get; set; }
 
 		// @property (readonly, nonatomic) EMChatToolbarType chatBarType;
@@ -1233,29 +1233,29 @@ namespace Hyphenate.iOS.UI
 		nfloat VerticalPadding { get; }
 
 		// @property (nonatomic, strong) NSArray * inputViewLeftItems;
-		[Export ("inputViewLeftItems", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("inputViewLeftItems", ArgumentSemantic.Strong)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] InputViewLeftItems { get; set; }
 
 		// @property (nonatomic, strong) NSArray * inputViewRightItems;
-		[Export ("inputViewRightItems", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("inputViewRightItems", ArgumentSemantic.Strong)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] InputViewRightItems { get; set; }
 
 		// @property (nonatomic, strong) EaseTextView * inputTextView;
-		[Export ("inputTextView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("inputTextView", ArgumentSemantic.Strong)]
 		EaseTextView InputTextView { get; set; }
 
 		// @property (nonatomic, strong) UIView * moreView;
-		[Export ("moreView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("moreView", ArgumentSemantic.Strong)]
 		UIView MoreView { get; set; }
 
 		// @property (nonatomic, strong) UIView * faceView;
-		[Export ("faceView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("faceView", ArgumentSemantic.Strong)]
 		UIView FaceView { get; set; }
 
 		// @property (nonatomic, strong) UIView * recordView;
-		[Export ("recordView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("recordView", ArgumentSemantic.Strong)]
 		UIView RecordView { get; set; }
 
 		// -(instancetype)initWithFrame:(CGRect)frame type:(EMChatToolbarType)type;
@@ -1348,7 +1348,7 @@ namespace Hyphenate.iOS.UI
 	{
 		// +(NSString *)pinyinFromChineseString:(NSString *)string;
 		[Static]
-		[Export ("pinyinFromChineseString:")]
+		[NullAllowed, Export ("pinyinFromChineseString:")]
 		string PinyinFromChineseString (string @string);
 
 		// +(char)sortSectionTitle:(NSString *)string;
@@ -1366,22 +1366,22 @@ namespace Hyphenate.iOS.UI
 	{
 		// @required @property (readonly, nonatomic, strong) EMConversation * conversation;
 		[Abstract]
-		[Export ("conversation", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("conversation", ArgumentSemantic.Strong)]
 		EMConversation Conversation { get; }
 
 		// @required @property (nonatomic, strong) NSString * title;
 		[Abstract]
-		[Export ("title", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("title", ArgumentSemantic.Strong)]
 		string Title { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * avatarURLPath;
 		[Abstract]
-		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarURLPath", ArgumentSemantic.Strong)]
 		string AvatarURLPath { get; set; }
 
 		// @required @property (nonatomic, strong) UIImage * avatarImage;
 		[Abstract]
-		[Export ("avatarImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarImage", ArgumentSemantic.Strong)]
 		UIImage AvatarImage { get; set; }
 
 		// @required -(instancetype)initWithConversation:(EMConversation *)conversation;
@@ -1395,11 +1395,11 @@ namespace Hyphenate.iOS.UI
 	interface EaseImageView
 	{
 		// @property (nonatomic, strong) UIImageView * imageView;
-		[Export ("imageView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("imageView", ArgumentSemantic.Strong)]
 		UIImageView ImageView { get; set; }
 
 		// @property (nonatomic, strong) UIImage * image;
-		[Export ("image", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("image", ArgumentSemantic.Strong)]
 		UIImage Image { get; set; }
 
 		// @property (nonatomic) NSInteger badge;
@@ -1419,15 +1419,15 @@ namespace Hyphenate.iOS.UI
 		nfloat BadgeSize { get; set; }
 
 		// @property (nonatomic) UIFont * badgeFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("badgeFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("badgeFont", ArgumentSemantic.Assign)]
 		UIFont BadgeFont { get; set; }
 
 		// @property (nonatomic) UIColor * badgeTextColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("badgeTextColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("badgeTextColor", ArgumentSemantic.Assign)]
 		UIColor BadgeTextColor { get; set; }
 
 		// @property (nonatomic) UIColor * badgeBackgroudColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("badgeBackgroudColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("badgeBackgroudColor", ArgumentSemantic.Assign)]
 		UIColor BadgeBackgroudColor { get; set; }
 	}
 
@@ -1436,23 +1436,23 @@ namespace Hyphenate.iOS.UI
 	interface EaseConversationCell : IModelCell
 	{
 		// @property (nonatomic, strong) EaseImageView * avatarView;
-		[Export ("avatarView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarView", ArgumentSemantic.Strong)]
 		EaseImageView AvatarView { get; set; }
 
 		// @property (nonatomic, strong) UILabel * detailLabel;
-		[Export ("detailLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("detailLabel", ArgumentSemantic.Strong)]
 		UILabel DetailLabel { get; set; }
 
 		// @property (nonatomic, strong) UILabel * timeLabel;
-		[Export ("timeLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("timeLabel", ArgumentSemantic.Strong)]
 		UILabel TimeLabel { get; set; }
 
 		// @property (nonatomic, strong) UILabel * titleLabel;
-		[Export ("titleLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("titleLabel", ArgumentSemantic.Strong)]
 		UILabel TitleLabel { get; set; }
 
 		// @property (nonatomic, strong) id<IConversationModel> model;
-		[Export ("model", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("model", ArgumentSemantic.Strong)]
 		new IIConversationModel Model { get; set; }
 
 		// @property (nonatomic) BOOL showAvatar;
@@ -1460,27 +1460,27 @@ namespace Hyphenate.iOS.UI
 		bool ShowAvatar { get; set; }
 
 		// @property (nonatomic) UIFont * titleLabelFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("titleLabelFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("titleLabelFont", ArgumentSemantic.Assign)]
 		UIFont TitleLabelFont { get; set; }
 
 		// @property (nonatomic) UIColor * titleLabelColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("titleLabelColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("titleLabelColor", ArgumentSemantic.Assign)]
 		UIColor TitleLabelColor { get; set; }
 
 		// @property (nonatomic) UIFont * detailLabelFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("detailLabelFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("detailLabelFont", ArgumentSemantic.Assign)]
 		UIFont DetailLabelFont { get; set; }
 
 		// @property (nonatomic) UIColor * detailLabelColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("detailLabelColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("detailLabelColor", ArgumentSemantic.Assign)]
 		UIColor DetailLabelColor { get; set; }
 
 		// @property (nonatomic) UIFont * timeLabelFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("timeLabelFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("timeLabelFont", ArgumentSemantic.Assign)]
 		UIFont TimeLabelFont { get; set; }
 
 		// @property (nonatomic) UIColor * timeLabelColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("timeLabelColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("timeLabelColor", ArgumentSemantic.Assign)]
 		UIColor TimeLabelColor { get; set; }
 
         // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
@@ -1493,24 +1493,24 @@ namespace Hyphenate.iOS.UI
 	interface EaseRefreshTableViewController : IUITableViewDataSource, IUITableViewDelegate
 	{
 		// @property (nonatomic, strong) NSArray * rightItems;
-		[Export ("rightItems", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("rightItems", ArgumentSemantic.Strong)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] RightItems { get; set; }
 
 		// @property (nonatomic, strong) UIView * defaultFooterView;
-		[Export ("defaultFooterView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("defaultFooterView", ArgumentSemantic.Strong)]
 		UIView DefaultFooterView { get; set; }
 
 		// @property (nonatomic, strong) UITableView * tableView;
-		[Export ("tableView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("tableView", ArgumentSemantic.Strong)]
 		UITableView TableView { get; set; }
 
 		// @property (nonatomic, strong) NSMutableArray * dataArray;
-		[Export ("dataArray", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("dataArray", ArgumentSemantic.Strong)]
 		NSMutableArray DataArray { get; set; }
 
 		// @property (nonatomic, strong) NSMutableDictionary * dataDictionary;
-		[Export ("dataDictionary", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("dataDictionary", ArgumentSemantic.Strong)]
 		NSMutableDictionary DataDictionary { get; set; }
 
 		// @property (nonatomic) int page;
@@ -1551,19 +1551,19 @@ namespace Hyphenate.iOS.UI
 	interface EaseConversationModel : IConversationModel
 	{
 		// @property (readonly, nonatomic, strong) EMConversation * conversation;
-		[Export ("conversation", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("conversation", ArgumentSemantic.Strong)]
 		new EMConversation Conversation { get; }
 
 		// @property (nonatomic, strong) NSString * title;
-		[Export ("title", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("title", ArgumentSemantic.Strong)]
         new string Title { get; set; }
 
 		// @property (nonatomic, strong) NSString * avatarURLPath;
-		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarURLPath", ArgumentSemantic.Strong)]
         new string AvatarURLPath { get; set; }
 
 		// @property (nonatomic, strong) UIImage * avatarImage;
-		[Export ("avatarImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarImage", ArgumentSemantic.Strong)]
         new UIImage AvatarImage { get; set; }
 
 		// -(instancetype)initWithConversation:(EMConversation *)conversation;
@@ -1593,15 +1593,15 @@ namespace Hyphenate.iOS.UI
 	{
 		// @required -(id<IConversationModel>)conversationListViewController:(EaseConversationListViewController *)conversationListViewController modelForConversation:(EMConversation *)conversation;
 		[Abstract]
-		[Export ("conversationListViewController:modelForConversation:")]
+		[NullAllowed, Export ("conversationListViewController:modelForConversation:")]
 		IIConversationModel ConversationListViewController_modelForConversation (EaseConversationListViewController conversationListViewController, EMConversation conversation);
 
 		// @optional -(NSAttributedString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController latestMessageTitleForConversationModel:(id<IConversationModel>)conversationModel;
-		[Export ("conversationListViewController:latestMessageTitleForConversationModel:")]
+		[NullAllowed, Export ("conversationListViewController:latestMessageTitleForConversationModel:")]
 		NSAttributedString ConversationListViewController_latestMessageTitleForConversationModel (EaseConversationListViewController conversationListViewController, IIConversationModel conversationModel);
 
 		// @optional -(NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController latestMessageTimeForConversationModel:(id<IConversationModel>)conversationModel;
-		[Export ("conversationListViewController:latestMessageTimeForConversationModel:")]
+		[NullAllowed, Export ("conversationListViewController:latestMessageTimeForConversationModel:")]
 		string ConversationListViewController_latestMessageTimeForConversationModel (EaseConversationListViewController conversationListViewController, IIConversationModel conversationModel);
 	}
 
@@ -1647,12 +1647,12 @@ namespace Hyphenate.iOS.UI
 	{
 		// +(NSString *)convertToCommonEmoticons:(NSString *)text;
 		[Static]
-		[Export ("convertToCommonEmoticons:")]
+		[NullAllowed, Export ("convertToCommonEmoticons:")]
 		string ConvertToCommonEmoticons (string text);
 
 		// +(NSString *)convertToSystemEmoticons:(NSString *)text;
 		[Static]
-		[Export ("convertToSystemEmoticons:")]
+		[NullAllowed, Export ("convertToSystemEmoticons:")]
 		string ConvertToSystemEmoticons (string text);
 	}
 
@@ -1675,12 +1675,12 @@ namespace Hyphenate.iOS.UI
 	{
 		// +(NSString *)emojiWithCode:(int)code;
 		[Static]
-		[Export ("emojiWithCode:")]
+		[NullAllowed, Export ("emojiWithCode:")]
 		string EmojiWithCode (int code);
 
 		// +(NSArray *)allEmoji;
 		[Static]
-		[Export ("allEmoji")]
+		[NullAllowed, Export ("allEmoji")]
 		//[Verify (MethodToProperty), Verify (StronglyTypedNSArray)]
 		NSObject[] AllEmoji { get; }
 
@@ -1696,463 +1696,463 @@ namespace Hyphenate.iOS.UI
 	{
 		// +(NSArray *)allEmoticons;
 		[Static]
-		[Export ("allEmoticons")]
+		[NullAllowed, Export ("allEmoticons")]
 		//[Verify (MethodToProperty), Verify (StronglyTypedNSArray)]
 		NSObject[] AllEmoticons ();
 
 		// +(NSString *)grinningFace;
 		[Static]
-		[Export ("grinningFace")]
+		[NullAllowed, Export ("grinningFace")]
 		//[Verify (MethodToProperty)]
 		string GrinningFace ();
 
 		// +(NSString *)grinningFaceWithSmilingEyes;
 		[Static]
-		[Export ("grinningFaceWithSmilingEyes")]
+		[NullAllowed, Export ("grinningFaceWithSmilingEyes")]
 		//[Verify (MethodToProperty)]
 		string GrinningFaceWithSmilingEyes ();
 
 		// +(NSString *)faceWithTearsOfJoy;
 		[Static]
-		[Export ("faceWithTearsOfJoy")]
+		[NullAllowed, Export ("faceWithTearsOfJoy")]
 		//[Verify (MethodToProperty)]
 		string FaceWithTearsOfJoy ();
 
 		// +(NSString *)smilingFaceWithOpenMouth;
 		[Static]
-		[Export ("smilingFaceWithOpenMouth")]
+		[NullAllowed, Export ("smilingFaceWithOpenMouth")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithOpenMouth ();
 
 		// +(NSString *)smilingFaceWithOpenMouthAndSmilingEyes;
 		[Static]
-		[Export ("smilingFaceWithOpenMouthAndSmilingEyes")]
+		[NullAllowed, Export ("smilingFaceWithOpenMouthAndSmilingEyes")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithOpenMouthAndSmilingEyes ();
 
 		// +(NSString *)smilingFaceWithOpenMouthAndColdSweat;
 		[Static]
-		[Export ("smilingFaceWithOpenMouthAndColdSweat")]
+		[NullAllowed, Export ("smilingFaceWithOpenMouthAndColdSweat")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithOpenMouthAndColdSweat ();
 
 		// +(NSString *)smilingFaceWithOpenMouthAndTightlyClosedEyes;
 		[Static]
-		[Export ("smilingFaceWithOpenMouthAndTightlyClosedEyes")]
+		[NullAllowed, Export ("smilingFaceWithOpenMouthAndTightlyClosedEyes")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithOpenMouthAndTightlyClosedEyes ();
 
 		// +(NSString *)smilingFaceWithHalo;
 		[Static]
-		[Export ("smilingFaceWithHalo")]
+		[NullAllowed, Export ("smilingFaceWithHalo")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithHalo ();
 
 		// +(NSString *)smilingFaceWithHorns;
 		[Static]
-		[Export ("smilingFaceWithHorns")]
+		[NullAllowed, Export ("smilingFaceWithHorns")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithHorns ();
 
 		// +(NSString *)winkingFace;
 		[Static]
-		[Export ("winkingFace")]
+		[NullAllowed, Export ("winkingFace")]
 		//[Verify (MethodToProperty)]
 		string WinkingFace ();
 
 		// +(NSString *)smilingFaceWithSmilingEyes;
 		[Static]
-		[Export ("smilingFaceWithSmilingEyes")]
+		[NullAllowed, Export ("smilingFaceWithSmilingEyes")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithSmilingEyes ();
 
 		// +(NSString *)faceSavouringDeliciousFood;
 		[Static]
-		[Export ("faceSavouringDeliciousFood")]
+		[NullAllowed, Export ("faceSavouringDeliciousFood")]
 		//[Verify (MethodToProperty)]
 		string FaceSavouringDeliciousFood ();
 
 		// +(NSString *)relievedFace;
 		[Static]
-		[Export ("relievedFace")]
+		[NullAllowed, Export ("relievedFace")]
 		//[Verify (MethodToProperty)]
 		string RelievedFace ();
 
 		// +(NSString *)smilingFaceWithHeartShapedEyes;
 		[Static]
-		[Export ("smilingFaceWithHeartShapedEyes")]
+		[NullAllowed, Export ("smilingFaceWithHeartShapedEyes")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithHeartShapedEyes ();
 
 		// +(NSString *)smilingFaceWithSunglasses;
 		[Static]
-		[Export ("smilingFaceWithSunglasses")]
+		[NullAllowed, Export ("smilingFaceWithSunglasses")]
 		//[Verify (MethodToProperty)]
 		string SmilingFaceWithSunglasses ();
 
 		// +(NSString *)smirkingFace;
 		[Static]
-		[Export ("smirkingFace")]
+		[NullAllowed, Export ("smirkingFace")]
 		//[Verify (MethodToProperty)]
 		string SmirkingFace ();
 
 		// +(NSString *)neutralFace;
 		[Static]
-		[Export ("neutralFace")]
+		[NullAllowed, Export ("neutralFace")]
 		//[Verify (MethodToProperty)]
 		string NeutralFace ();
 
 		// +(NSString *)expressionlessFace;
 		[Static]
-		[Export ("expressionlessFace")]
+		[NullAllowed, Export ("expressionlessFace")]
 		//[Verify (MethodToProperty)]
 		string ExpressionlessFace ();
 
 		// +(NSString *)unamusedFace;
 		[Static]
-		[Export ("unamusedFace")]
+		[NullAllowed, Export ("unamusedFace")]
 		//[Verify (MethodToProperty)]
 		string UnamusedFace ();
 
 		// +(NSString *)faceWithColdSweat;
 		[Static]
-		[Export ("faceWithColdSweat")]
+		[NullAllowed, Export ("faceWithColdSweat")]
 		//[Verify (MethodToProperty)]
 		string FaceWithColdSweat ();
 
 		// +(NSString *)pensiveFace;
 		[Static]
-		[Export ("pensiveFace")]
+		[NullAllowed, Export ("pensiveFace")]
 		//[Verify (MethodToProperty)]
 		string PensiveFace ();
 
 		// +(NSString *)confusedFace;
 		[Static]
-		[Export ("confusedFace")]
+		[NullAllowed, Export ("confusedFace")]
 		//[Verify (MethodToProperty)]
 		string ConfusedFace ();
 
 		// +(NSString *)confoundedFace;
 		[Static]
-		[Export ("confoundedFace")]
+		[NullAllowed, Export ("confoundedFace")]
 		//[Verify (MethodToProperty)]
 		string ConfoundedFace ();
 
 		// +(NSString *)kissingFace;
 		[Static]
-		[Export ("kissingFace")]
+		[NullAllowed, Export ("kissingFace")]
 		//[Verify (MethodToProperty)]
 		string KissingFace ();
 
 		// +(NSString *)faceThrowingAKiss;
 		[Static]
-		[Export ("faceThrowingAKiss")]
+		[NullAllowed, Export ("faceThrowingAKiss")]
 		//[Verify (MethodToProperty)]
 		string FaceThrowingAKiss ();
 
 		// +(NSString *)kissingFaceWithSmilingEyes;
 		[Static]
-		[Export ("kissingFaceWithSmilingEyes")]
+		[NullAllowed, Export ("kissingFaceWithSmilingEyes")]
 		//[Verify (MethodToProperty)]
 		string KissingFaceWithSmilingEyes ();
 
 		// +(NSString *)kissingFaceWithClosedEyes;
 		[Static]
-		[Export ("kissingFaceWithClosedEyes")]
+		[NullAllowed, Export ("kissingFaceWithClosedEyes")]
 		//[Verify (MethodToProperty)]
 		string KissingFaceWithClosedEyes ();
 
 		// +(NSString *)faceWithStuckOutTongue;
 		[Static]
-		[Export ("faceWithStuckOutTongue")]
+		[NullAllowed, Export ("faceWithStuckOutTongue")]
 		//[Verify (MethodToProperty)]
 		string FaceWithStuckOutTongue ();
 
 		// +(NSString *)faceWithStuckOutTongueAndWinkingEye;
 		[Static]
-		[Export ("faceWithStuckOutTongueAndWinkingEye")]
+		[NullAllowed, Export ("faceWithStuckOutTongueAndWinkingEye")]
 		//[Verify (MethodToProperty)]
 		string FaceWithStuckOutTongueAndWinkingEye ();
 
 		// +(NSString *)faceWithStuckOutTongueAndTightlyClosedEyes;
 		[Static]
-		[Export ("faceWithStuckOutTongueAndTightlyClosedEyes")]
+		[NullAllowed, Export ("faceWithStuckOutTongueAndTightlyClosedEyes")]
 		//[Verify (MethodToProperty)]
 		string FaceWithStuckOutTongueAndTightlyClosedEyes ();
 
 		// +(NSString *)disappointedFace;
 		[Static]
-		[Export ("disappointedFace")]
+		[NullAllowed, Export ("disappointedFace")]
 		//[Verify (MethodToProperty)]
 		string DisappointedFace ();
 
 		// +(NSString *)worriedFace;
 		[Static]
-		[Export ("worriedFace")]
+		[NullAllowed, Export ("worriedFace")]
 		//[Verify (MethodToProperty)]
 		string WorriedFace ();
 
 		// +(NSString *)angryFace;
 		[Static]
-		[Export ("angryFace")]
+		[NullAllowed, Export ("angryFace")]
 		//[Verify (MethodToProperty)]
 		string AngryFace ();
 
 		// +(NSString *)poutingFace;
 		[Static]
-		[Export ("poutingFace")]
+		[NullAllowed, Export ("poutingFace")]
 		//[Verify (MethodToProperty)]
 		string PoutingFace ();
 
 		// +(NSString *)cryingFace;
 		[Static]
-		[Export ("cryingFace")]
+		[NullAllowed, Export ("cryingFace")]
 		//[Verify (MethodToProperty)]
 		string CryingFace ();
 
 		// +(NSString *)perseveringFace;
 		[Static]
-		[Export ("perseveringFace")]
+		[NullAllowed, Export ("perseveringFace")]
 		//[Verify (MethodToProperty)]
 		string PerseveringFace ();
 
 		// +(NSString *)faceWithLookOfTriumph;
 		[Static]
-		[Export ("faceWithLookOfTriumph")]
+		[NullAllowed, Export ("faceWithLookOfTriumph")]
 		//[Verify (MethodToProperty)]
 		string FaceWithLookOfTriumph ();
 
 		// +(NSString *)disappointedButRelievedFace;
 		[Static]
-		[Export ("disappointedButRelievedFace")]
+		[NullAllowed, Export ("disappointedButRelievedFace")]
 		//[Verify (MethodToProperty)]
 		string DisappointedButRelievedFace ();
 
 		// +(NSString *)frowningFaceWithOpenMouth;
 		[Static]
-		[Export ("frowningFaceWithOpenMouth")]
+		[NullAllowed, Export ("frowningFaceWithOpenMouth")]
 		//[Verify (MethodToProperty)]
 		string FrowningFaceWithOpenMouth ();
 
 		// +(NSString *)anguishedFace;
 		[Static]
-		[Export ("anguishedFace")]
+		[NullAllowed, Export ("anguishedFace")]
 		//[Verify (MethodToProperty)]
 		string AnguishedFace ();
 
 		// +(NSString *)fearfulFace;
 		[Static]
-		[Export ("fearfulFace")]
+		[NullAllowed, Export ("fearfulFace")]
 		//[Verify (MethodToProperty)]
 		string FearfulFace ();
 
 		// +(NSString *)wearyFace;
 		[Static]
-		[Export ("wearyFace")]
+		[NullAllowed, Export ("wearyFace")]
 		//[Verify (MethodToProperty)]
 		string WearyFace ();
 
 		// +(NSString *)sleepyFace;
 		[Static]
-		[Export ("sleepyFace")]
+		[NullAllowed, Export ("sleepyFace")]
 		//[Verify (MethodToProperty)]
 		string SleepyFace ();
 
 		// +(NSString *)tiredFace;
 		[Static]
-		[Export ("tiredFace")]
+		[NullAllowed, Export ("tiredFace")]
 		//[Verify (MethodToProperty)]
 		string TiredFace ();
 
 		// +(NSString *)grimacingFace;
 		[Static]
-		[Export ("grimacingFace")]
+		[NullAllowed, Export ("grimacingFace")]
 		//[Verify (MethodToProperty)]
 		string GrimacingFace ();
 
 		// +(NSString *)loudlyCryingFace;
 		[Static]
-		[Export ("loudlyCryingFace")]
+		[NullAllowed, Export ("loudlyCryingFace")]
 		//[Verify (MethodToProperty)]
 		string LoudlyCryingFace ();
 
 		// +(NSString *)faceWithOpenMouth;
 		[Static]
-		[Export ("faceWithOpenMouth")]
+		[NullAllowed, Export ("faceWithOpenMouth")]
 		//[Verify (MethodToProperty)]
 		string FaceWithOpenMouth ();
 
 		// +(NSString *)hushedFace;
 		[Static]
-		[Export ("hushedFace")]
+		[NullAllowed, Export ("hushedFace")]
 		//[Verify (MethodToProperty)]
 		string HushedFace ();
 
 		// +(NSString *)faceWithOpenMouthAndColdSweat;
 		[Static]
-		[Export ("faceWithOpenMouthAndColdSweat")]
+		[NullAllowed, Export ("faceWithOpenMouthAndColdSweat")]
 		//[Verify (MethodToProperty)]
 		string FaceWithOpenMouthAndColdSweat ();
 
 		// +(NSString *)faceScreamingInFear;
 		[Static]
-		[Export ("faceScreamingInFear")]
+		[NullAllowed, Export ("faceScreamingInFear")]
 		//[Verify (MethodToProperty)]
 		string FaceScreamingInFear ();
 
 		// +(NSString *)astonishedFace;
 		[Static]
-		[Export ("astonishedFace")]
+		[NullAllowed, Export ("astonishedFace")]
 		//[Verify (MethodToProperty)]
 		string AstonishedFace ();
 
 		// +(NSString *)flushedFace;
 		[Static]
-		[Export ("flushedFace")]
+		[NullAllowed, Export ("flushedFace")]
 		//[Verify (MethodToProperty)]
 		string FlushedFace ();
 
 		// +(NSString *)sleepingFace;
 		[Static]
-		[Export ("sleepingFace")]
+		[NullAllowed, Export ("sleepingFace")]
 		//[Verify (MethodToProperty)]
 		string SleepingFace ();
 
 		// +(NSString *)dizzyFace;
 		[Static]
-		[Export ("dizzyFace")]
+		[NullAllowed, Export ("dizzyFace")]
 		//[Verify (MethodToProperty)]
 		string DizzyFace ();
 
 		// +(NSString *)faceWithoutMouth;
 		[Static]
-		[Export ("faceWithoutMouth")]
+		[NullAllowed, Export ("faceWithoutMouth")]
 		//[Verify (MethodToProperty)]
 		string FaceWithoutMouth ();
 
 		// +(NSString *)faceWithMedicalMask;
 		[Static]
-		[Export ("faceWithMedicalMask")]
+		[NullAllowed, Export ("faceWithMedicalMask")]
 		//[Verify (MethodToProperty)]
 		string FaceWithMedicalMask ();
 
 		// +(NSString *)grinningCatFaceWithSmilingEyes;
 		[Static]
-		[Export ("grinningCatFaceWithSmilingEyes")]
+		[NullAllowed, Export ("grinningCatFaceWithSmilingEyes")]
 		//[Verify (MethodToProperty)]
 		string GrinningCatFaceWithSmilingEyes ();
 
 		// +(NSString *)catFaceWithTearsOfJoy;
 		[Static]
-		[Export ("catFaceWithTearsOfJoy")]
+		[NullAllowed, Export ("catFaceWithTearsOfJoy")]
 		//[Verify (MethodToProperty)]
 		string CatFaceWithTearsOfJoy ();
 
 		// +(NSString *)smilingCatFaceWithOpenMouth;
 		[Static]
-		[Export ("smilingCatFaceWithOpenMouth")]
+		[NullAllowed, Export ("smilingCatFaceWithOpenMouth")]
 		//[Verify (MethodToProperty)]
 		string SmilingCatFaceWithOpenMouth ();
 
 		// +(NSString *)smilingCatFaceWithHeartShapedEyes;
 		[Static]
-		[Export ("smilingCatFaceWithHeartShapedEyes")]
+		[NullAllowed, Export ("smilingCatFaceWithHeartShapedEyes")]
 		//[Verify (MethodToProperty)]
 		string SmilingCatFaceWithHeartShapedEyes ();
 
 		// +(NSString *)catFaceWithWrySmile;
 		[Static]
-		[Export ("catFaceWithWrySmile")]
+		[NullAllowed, Export ("catFaceWithWrySmile")]
 		//[Verify (MethodToProperty)]
 		string CatFaceWithWrySmile ();
 
 		// +(NSString *)kissingCatFaceWithClosedEyes;
 		[Static]
-		[Export ("kissingCatFaceWithClosedEyes")]
+		[NullAllowed, Export ("kissingCatFaceWithClosedEyes")]
 		//[Verify (MethodToProperty)]
 		string KissingCatFaceWithClosedEyes ();
 
 		// +(NSString *)poutingCatFace;
 		[Static]
-		[Export ("poutingCatFace")]
+		[NullAllowed, Export ("poutingCatFace")]
 		//[Verify (MethodToProperty)]
 		string PoutingCatFace ();
 
 		// +(NSString *)cryingCatFace;
 		[Static]
-		[Export ("cryingCatFace")]
+		[NullAllowed, Export ("cryingCatFace")]
 		//[Verify (MethodToProperty)]
 		string CryingCatFace ();
 
 		// +(NSString *)wearyCatFace;
 		[Static]
-		[Export ("wearyCatFace")]
+		[NullAllowed, Export ("wearyCatFace")]
 		//[Verify (MethodToProperty)]
 		string WearyCatFace ();
 
 		// +(NSString *)faceWithNoGoodGesture;
 		[Static]
-		[Export ("faceWithNoGoodGesture")]
+		[NullAllowed, Export ("faceWithNoGoodGesture")]
 		//[Verify (MethodToProperty)]
 		string FaceWithNoGoodGesture ();
 
 		// +(NSString *)faceWithOkGesture;
 		[Static]
-		[Export ("faceWithOkGesture")]
+		[NullAllowed, Export ("faceWithOkGesture")]
 		//[Verify (MethodToProperty)]
 		string FaceWithOkGesture ();
 
 		// +(NSString *)personBowingDeeply;
 		[Static]
-		[Export ("personBowingDeeply")]
+		[NullAllowed, Export ("personBowingDeeply")]
 		//[Verify (MethodToProperty)]
 		string PersonBowingDeeply ();
 
 		// +(NSString *)seeNoEvilMonkey;
 		[Static]
-		[Export ("seeNoEvilMonkey")]
+		[NullAllowed, Export ("seeNoEvilMonkey")]
 		//[Verify (MethodToProperty)]
 		string SeeNoEvilMonkey ();
 
 		// +(NSString *)hearNoEvilMonkey;
 		[Static]
-		[Export ("hearNoEvilMonkey")]
+		[NullAllowed, Export ("hearNoEvilMonkey")]
 		//[Verify (MethodToProperty)]
 		string HearNoEvilMonkey ();
 
 		// +(NSString *)speakNoEvilMonkey;
 		[Static]
-		[Export ("speakNoEvilMonkey")]
+		[NullAllowed, Export ("speakNoEvilMonkey")]
 		//[Verify (MethodToProperty)]
 		string SpeakNoEvilMonkey ();
 
 		// +(NSString *)happyPersonRaisingOneHand;
 		[Static]
-		[Export ("happyPersonRaisingOneHand")]
+		[NullAllowed, Export ("happyPersonRaisingOneHand")]
 		//[Verify (MethodToProperty)]
 		string HappyPersonRaisingOneHand ();
 
 		// +(NSString *)personRaisingBothHandsInCelebration;
 		[Static]
-		[Export ("personRaisingBothHandsInCelebration")]
+		[NullAllowed, Export ("personRaisingBothHandsInCelebration")]
 		//[Verify (MethodToProperty)]
 		string PersonRaisingBothHandsInCelebration ();
 
 		// +(NSString *)personFrowning;
 		[Static]
-		[Export ("personFrowning")]
+		[NullAllowed, Export ("personFrowning")]
 		//[Verify (MethodToProperty)]
 		string PersonFrowning ();
 
 		// +(NSString *)personWithPoutingFace;
 		[Static]
-		[Export ("personWithPoutingFace")]
+		[NullAllowed, Export ("personWithPoutingFace")]
 		//[Verify (MethodToProperty)]
 		string PersonWithPoutingFace ();
 
 		// +(NSString *)personWithFoldedHands;
 		[Static]
-		[Export ("personWithFoldedHands")]
+		[NullAllowed, Export ("personWithFoldedHands")]
 		//[Verify (MethodToProperty)]
 		string PersonWithFoldedHands ();
 	}
@@ -2169,25 +2169,25 @@ namespace Hyphenate.iOS.UI
 
 		// +(NSMutableAttributedString *)attributtedStringFromText:(NSString *)aInputText;
 		[Static]
-		[Export ("attributtedStringFromText:")]
+		[NullAllowed, Export ("attributtedStringFromText:")]
 		NSMutableAttributedString AttributtedStringFromText (string aInputText);
 
 		// +(NSAttributedString *)attStringFromTextForChatting:(NSString *)aInputText;
 		[Static]
-		[Export ("attStringFromTextForChatting:")]
+		[NullAllowed, Export ("attStringFromTextForChatting:")]
 		NSAttributedString AttStringFromTextForChatting (string aInputText);
 
 		// +(NSAttributedString *)attStringFromTextForInputView:(NSString *)aInputText;
 		[Static]
-		[Export ("attStringFromTextForInputView:")]
+		[NullAllowed, Export ("attStringFromTextForInputView:")]
 		NSAttributedString AttStringFromTextForInputView (string aInputText);
 
 		// -(NSAttributedString *)attStringFromTextForChatting:(NSString *)aInputText textFont:(UIFont *)font;
-		[Export ("attStringFromTextForChatting:textFont:")]
+		[NullAllowed, Export ("attStringFromTextForChatting:textFont:")]
 		NSAttributedString AttStringFromTextForChatting (string aInputText, UIFont font);
 
 		// -(NSAttributedString *)attStringFromTextForInputView:(NSString *)aInputText textFont:(UIFont *)font;
-		[Export ("attStringFromTextForInputView:textFont:")]
+		[NullAllowed, Export ("attStringFromTextForInputView:textFont:")]
 		NSAttributedString AttStringFromTextForInputView (string aInputText, UIFont font);
 
 		// -(void)setEaseEmotionEscapePattern:(NSString *)pattern;
@@ -2204,7 +2204,7 @@ namespace Hyphenate.iOS.UI
 	interface EMTextAttachment
 	{
 		// @property (nonatomic, strong) NSString * imageName;
-		[Export ("imageName", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("imageName", ArgumentSemantic.Strong)]
 		string ImageName { get; set; }
 	}
 
@@ -2213,7 +2213,7 @@ namespace Hyphenate.iOS.UI
 	interface EaseEmotionManager
 	{
 		// @property (nonatomic, strong) NSArray * emotions;
-		[Export ("emotions", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("emotions", ArgumentSemantic.Strong)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] Emotions { get; set; }
 
@@ -2226,11 +2226,11 @@ namespace Hyphenate.iOS.UI
 		nint EmotionCol { get; set; }
 
 		// @property (assign, nonatomic) EMEmotionType emotionType;
-		[Export ("emotionType", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("emotionType", ArgumentSemantic.Assign)]
 		EMEmotionType EmotionType { get; set; }
 
 		// @property (nonatomic, strong) UIImage * tagImage;
-		[Export ("tagImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("tagImage", ArgumentSemantic.Strong)]
 		UIImage TagImage { get; set; }
 
 		// -(id)initWithType:(EMEmotionType)Type emotionRow:(NSInteger)emotionRow emotionCol:(NSInteger)emotionCol emotions:(NSArray *)emotions;
@@ -2249,27 +2249,27 @@ namespace Hyphenate.iOS.UI
 	interface EaseEmotion
 	{
 		// @property (assign, nonatomic) EMEmotionType emotionType;
-		[Export ("emotionType", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("emotionType", ArgumentSemantic.Assign)]
 		EMEmotionType EmotionType { get; set; }
 
 		// @property (copy, nonatomic) NSString * emotionTitle;
-		[Export ("emotionTitle")]
+		[NullAllowed, Export ("emotionTitle")]
 		string EmotionTitle { get; set; }
 
 		// @property (copy, nonatomic) NSString * emotionId;
-		[Export ("emotionId")]
+		[NullAllowed, Export ("emotionId")]
 		string EmotionId { get; set; }
 
 		// @property (copy, nonatomic) NSString * emotionThumbnail;
-		[Export ("emotionThumbnail")]
+		[NullAllowed, Export ("emotionThumbnail")]
 		string EmotionThumbnail { get; set; }
 
 		// @property (copy, nonatomic) NSString * emotionOriginal;
-		[Export ("emotionOriginal")]
+		[NullAllowed, Export ("emotionOriginal")]
 		string EmotionOriginal { get; set; }
 
 		// @property (copy, nonatomic) NSString * emotionOriginalURL;
-		[Export ("emotionOriginalURL")]
+		[NullAllowed, Export ("emotionOriginalURL")]
 		string EmotionOriginalURL { get; set; }
 
 		// -(id)initWithName:(NSString *)emotionTitle emotionId:(NSString *)emotionId emotionThumbnail:(NSString *)emotionThumbnail emotionOriginal:(NSString *)emotionOriginal emotionOriginalURL:(NSString *)emotionOriginalURL emotionType:(EMEmotionType)emotionType;
@@ -2282,7 +2282,7 @@ namespace Hyphenate.iOS.UI
 	interface EaseViewController
 	{
 		// @property (nonatomic, strong) NSArray * rightItems;
-		[Export ("rightItems", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("rightItems", ArgumentSemantic.Strong)]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] RightItems { get; set; }
 
@@ -2329,15 +2329,15 @@ namespace Hyphenate.iOS.UI
 		new nfloat CellHeight { get; set; }
 
 		// @property (readonly, nonatomic, strong) EMMessage * message;
-		[Export ("message", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("message", ArgumentSemantic.Strong)]
         new EMMessage Message { get; }
 
 		// @property (readonly, nonatomic, strong) EMMessageBody * firstMessageBody;
-		[Export ("firstMessageBody", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("firstMessageBody", ArgumentSemantic.Strong)]
 		EMMessageBody FirstMessageBody { get; }
 
 		// @property (readonly, nonatomic, strong) NSString * messageId;
-		[Export ("messageId", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("messageId", ArgumentSemantic.Strong)]
         new string MessageId { get; }
 
 		// @property (readonly, nonatomic) int bodyType;
@@ -2361,27 +2361,27 @@ namespace Hyphenate.iOS.UI
         new bool IsSender { get; set; }
 
 		// @property (nonatomic, strong) NSString * nickname;
-		[Export ("nickname", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("nickname", ArgumentSemantic.Strong)]
         new string Nickname { get; set; }
 
 		// @property (nonatomic, strong) NSString * avatarURLPath;
-		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarURLPath", ArgumentSemantic.Strong)]
 		new string AvatarURLPath { get; set; }
 
 		// @property (nonatomic, strong) UIImage * avatarImage;
-		[Export ("avatarImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarImage", ArgumentSemantic.Strong)]
 		new UIImage AvatarImage { get; set; }
 
 		// @property (nonatomic, strong) NSString * text;
-		[Export ("text", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("text", ArgumentSemantic.Strong)]
 		new string Text { get; set; }
 
 		// @property (nonatomic, strong) NSAttributedString * attrBody;
-		[Export ("attrBody", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("attrBody", ArgumentSemantic.Strong)]
 		new NSAttributedString AttrBody { get; set; }
 
 		// @property (nonatomic, strong) NSString * address;
-		[Export ("address", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("address", ArgumentSemantic.Strong)]
 		new string Address { get; set; }
 
 		// @property (nonatomic) double latitude;
@@ -2393,7 +2393,7 @@ namespace Hyphenate.iOS.UI
 		new double Longitude { get; set; }
 
 		// @property (nonatomic, strong) NSString * failImageName;
-		[Export ("failImageName", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("failImageName", ArgumentSemantic.Strong)]
 		new string FailImageName { get; set; }
 
 		// @property (nonatomic) CGSize imageSize;
@@ -2405,11 +2405,11 @@ namespace Hyphenate.iOS.UI
 		new CGSize ThumbnailImageSize { get; set; }
 
 		// @property (nonatomic, strong) UIImage * image;
-		[Export ("image", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("image", ArgumentSemantic.Strong)]
 		new UIImage Image { get; set; }
 
 		// @property (nonatomic, strong) UIImage * thumbnailImage;
-		[Export ("thumbnailImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("thumbnailImage", ArgumentSemantic.Strong)]
 		new UIImage ThumbnailImage { get; set; }
 
 		// @property (nonatomic) BOOL isMediaPlaying;
@@ -2425,15 +2425,15 @@ namespace Hyphenate.iOS.UI
 		new nfloat MediaDuration { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileIconName;
-		[Export ("fileIconName", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileIconName", ArgumentSemantic.Strong)]
 		new string FileIconName { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileName;
-		[Export ("fileName", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileName", ArgumentSemantic.Strong)]
 		new string FileName { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileSizeDes;
-		[Export ("fileSizeDes", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileSizeDes", ArgumentSemantic.Strong)]
 		new string FileSizeDes { get; set; }
 
 		// @property (nonatomic) CGFloat fileSize;
@@ -2445,19 +2445,19 @@ namespace Hyphenate.iOS.UI
 		new float Progress { get; set; }
 
 		// @property (readonly, nonatomic, strong) NSString * fileLocalPath;
-		[Export ("fileLocalPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileLocalPath", ArgumentSemantic.Strong)]
 		new string FileLocalPath { get; }
 
 		// @property (nonatomic, strong) NSString * thumbnailFileLocalPath;
-		[Export ("thumbnailFileLocalPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("thumbnailFileLocalPath", ArgumentSemantic.Strong)]
 		new string ThumbnailFileLocalPath { get; set; }
 
 		// @property (nonatomic, strong) NSString * fileURLPath;
-		[Export ("fileURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("fileURLPath", ArgumentSemantic.Strong)]
 		new string FileURLPath { get; set; }
 
 		// @property (nonatomic, strong) NSString * thumbnailFileURLPath;
-		[Export ("thumbnailFileURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("thumbnailFileURLPath", ArgumentSemantic.Strong)]
 		new string ThumbnailFileURLPath { get; set; }
 
 		// @property (nonatomic) BOOL isDing;
@@ -2484,20 +2484,20 @@ namespace Hyphenate.iOS.UI
 	interface EaseMessageReadManager
 	{
 		// @property (nonatomic, strong) MWPhotoBrowser * photoBrowser;
-		[Export ("photoBrowser", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("photoBrowser", ArgumentSemantic.Strong)]
         Ricardo.LibMWPhotoBrowser.iOS.MWPhotoBrowser PhotoBrowser { get; set; }
 
 		// @property (nonatomic, strong) FinishBlock finishBlock;
-		[Export ("finishBlock", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("finishBlock", ArgumentSemantic.Strong)]
 		FinishBlock FinishBlock { get; set; }
 
 		// @property (nonatomic, strong) EaseMessageModel * audioMessageModel;
-		[Export ("audioMessageModel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("audioMessageModel", ArgumentSemantic.Strong)]
 		EaseMessageModel AudioMessageModel { get; set; }
 
 		// +(id)defaultManager;
 		[Static]
-		[Export ("defaultManager")]
+		[NullAllowed, Export ("defaultManager")]
 		//[Verify (MethodToProperty)]
 		NSObject DefaultManager { get; }
 
@@ -2511,7 +2511,7 @@ namespace Hyphenate.iOS.UI
 		bool PrepareMessageAudioModel (EaseMessageModel messageModel, [NullAllowed] Action<EaseMessageModel, EaseMessageModel> updateCompletion);
 
 		// -(EaseMessageModel *)stopMessageAudioModel;
-		[Export ("stopMessageAudioModel")]
+		[NullAllowed, Export ("stopMessageAudioModel")]
 		//[Verify (MethodToProperty)]
 		EaseMessageModel StopMessageAudioModel { get; }
 	}
@@ -2521,20 +2521,20 @@ namespace Hyphenate.iOS.UI
 	interface EaseMessageTimeCell
 	{
 		// @property (nonatomic, strong) NSString * title;
-		[Export ("title", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("title", ArgumentSemantic.Strong)]
 		string Title { get; set; }
 
 		// @property (nonatomic) UIFont * titleLabelFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("titleLabelFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("titleLabelFont", ArgumentSemantic.Assign)]
 		UIFont TitleLabelFont { get; set; }
 
 		// @property (nonatomic) UIColor * titleLabelColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("titleLabelColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("titleLabelColor", ArgumentSemantic.Assign)]
 		UIColor TitleLabelColor { get; set; }
 
 		// +(NSString *)cellIdentifier;
 		[Static]
-		[Export ("cellIdentifier")]
+		[NullAllowed, Export ("cellIdentifier")]
 		//[Verify (MethodToProperty)]
 		string CellIdentifier { get; }
 
@@ -2579,7 +2579,7 @@ namespace Hyphenate.iOS.UI
 
 		// +(instancetype)shareHelper;
 		[Static]
-		[Export ("shareHelper")]
+		[NullAllowed, Export ("shareHelper")]
 		EaseSDKHelper ShareHelper ();
 
 		// -(void)hyphenateApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions appkey:(NSString *)appkey apnsCertName:(NSString *)apnsCertName otherConfig:(NSDictionary *)otherConfig;
@@ -2592,38 +2592,38 @@ namespace Hyphenate.iOS.UI
 
 		// +(EMMessage *)getTextMessage:(NSString *)text to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
-		[Export ("getTextMessage:to:messageType:messageExt:")]
+		[NullAllowed, Export ("getTextMessage:to:messageType:messageExt:")]
 		EMMessage GetTextMessage (string text, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getCmdMessage:(NSString *)action to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt cmdParams:(NSArray *)params;
 		[Static]
-		[Export ("getCmdMessage:to:messageType:messageExt:cmdParams:")]
+		[NullAllowed, Export ("getCmdMessage:to:messageType:messageExt:cmdParams:")]
 		//[Verify (StronglyTypedNSArray)]
 		EMMessage GetCmdMessage (string action, string to, int messageType, [NullAllowed] NSDictionary messageExt, [NullAllowed] NSObject[] @params);
 
 		// +(EMMessage *)getLocationMessageWithLatitude:(double)latitude longitude:(double)longitude address:(NSString *)address to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
-		[Export ("getLocationMessageWithLatitude:longitude:address:to:messageType:messageExt:")]
+		[NullAllowed, Export ("getLocationMessageWithLatitude:longitude:address:to:messageType:messageExt:")]
 		EMMessage GetLocationMessageWithLatitude (double latitude, double longitude, string address, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getImageMessageWithImageData:(NSData *)imageData to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
-		[Export ("getImageMessageWithImageData:to:messageType:messageExt:")]
+		[NullAllowed, Export ("getImageMessageWithImageData:to:messageType:messageExt:")]
 		EMMessage GetImageMessageWithImageData (NSData imageData, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getImageMessageWithImage:(UIImage *)image to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
-		[Export ("getImageMessageWithImage:to:messageType:messageExt:")]
+		[NullAllowed, Export ("getImageMessageWithImage:to:messageType:messageExt:")]
 		EMMessage GetImageMessageWithImage (UIImage image, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getVoiceMessageWithLocalPath:(NSString *)localPath duration:(NSInteger)duration to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
-		[Export ("getVoiceMessageWithLocalPath:duration:to:messageType:messageExt:")]
+		[NullAllowed, Export ("getVoiceMessageWithLocalPath:duration:to:messageType:messageExt:")]
 		EMMessage GetVoiceMessageWithLocalPath (string localPath, nint duration, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 
 		// +(EMMessage *)getVideoMessageWithURL:(NSURL *)url to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
-		[Export ("getVideoMessageWithURL:to:messageType:messageExt:")]
+		[NullAllowed, Export ("getVideoMessageWithURL:to:messageType:messageExt:")]
 		EMMessage GetVideoMessageWithURL (NSUrl url, string to, int messageType, [NullAllowed] NSDictionary messageExt);
 	}
 
@@ -2632,11 +2632,11 @@ namespace Hyphenate.iOS.UI
 	interface EaseAtTarget
 	{
 		// @property (copy, nonatomic) NSString * userId;
-		[Export ("userId")]
+		[NullAllowed, Export ("userId")]
 		string UserId { get; set; }
 
 		// @property (copy, nonatomic) NSString * nickname;
-		[Export ("nickname")]
+		[NullAllowed, Export ("nickname")]
 		string Nickname { get; set; }
 
 		// -(instancetype)initWithUserId:(NSString *)userId andNickname:(NSString *)nickname;
@@ -2655,7 +2655,7 @@ namespace Hyphenate.iOS.UI
 	interface EaseMessageViewControllerDelegate
 	{
 		// @optional -(UITableViewCell *)messageViewController:(UITableView *)tableView cellForMessageModel:(id<IMessageModel>)messageModel;
-		[Export ("messageViewController:cellForMessageModel:")]
+		[NullAllowed, Export ("messageViewController:cellForMessageModel:")]
 		UITableViewCell MessageViewController_cellForMessageModel (UITableView tableView, IIMessageModel messageModel);
 
 		// @optional -(CGFloat)messageViewController:(EaseMessageViewController *)viewController heightForMessageModel:(id<IMessageModel>)messageModel withCellWidth:(CGFloat)cellWidth;
@@ -2699,7 +2699,7 @@ namespace Hyphenate.iOS.UI
 	interface EaseMessageViewControllerDataSource
 	{
 		// @optional -(id)messageViewController:(EaseMessageViewController *)viewController progressDelegateForMessageBodyType:(int)messageBodyType;
-		[Export ("messageViewController:progressDelegateForMessageBodyType:")]
+		[NullAllowed, Export ("messageViewController:progressDelegateForMessageBodyType:")]
 		NSObject MessageViewController_progressDelegateForMessageBodyType (EaseMessageViewController viewController, int messageBodyType);
 
 		// @optional -(void)messageViewController:(EaseMessageViewController *)viewController updateProgress:(float)progress messageModel:(id<IMessageModel>)messageModel messageBody:(EMMessageBody *)messageBody;
@@ -2707,11 +2707,11 @@ namespace Hyphenate.iOS.UI
 		void MessageViewController_updateProgress_messageModel_messageBody (EaseMessageViewController viewController, float progress, IIMessageModel messageModel, EMMessageBody messageBody);
 
 		// @optional -(NSString *)messageViewController:(EaseMessageViewController *)viewController stringForDate:(NSDate *)date;
-		[Export ("messageViewController:stringForDate:")]
+		[NullAllowed, Export ("messageViewController:stringForDate:")]
 		string MessageViewController_stringForDate (EaseMessageViewController viewController, NSDate date);
 
 		// @optional -(id<IMessageModel>)messageViewController:(EaseMessageViewController *)viewController modelForMessage:(EMMessage *)message;
-		[Export ("messageViewController:modelForMessage:")]
+		[NullAllowed, Export ("messageViewController:modelForMessage:")]
 		IIMessageModel MessageViewController_modelForMessage (EaseMessageViewController viewController, EMMessage message);
 
 		// @optional -(BOOL)messageViewController:(EaseMessageViewController *)viewController canLongPressRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -2735,16 +2735,16 @@ namespace Hyphenate.iOS.UI
 		bool IsEmotionMessageFormessageViewController_messageModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(EaseEmotion *)emotionURLFormessageViewController:(EaseMessageViewController *)viewController messageModel:(id<IMessageModel>)messageModel;
-		[Export ("emotionURLFormessageViewController:messageModel:")]
+		[NullAllowed, Export ("emotionURLFormessageViewController:messageModel:")]
 		EaseEmotion EmotionURLFormessageViewController_messageModel (EaseMessageViewController viewController, IIMessageModel messageModel);
 
 		// @optional -(NSArray *)emotionFormessageViewController:(EaseMessageViewController *)viewController;
-		[Export ("emotionFormessageViewController:")]
+		[NullAllowed, Export ("emotionFormessageViewController:")]
 		//[Verify (StronglyTypedNSArray)]
 		NSObject[] EmotionFormessageViewController (EaseMessageViewController viewController);
 
 		// @optional -(NSDictionary *)emotionExtFormessageViewController:(EaseMessageViewController *)viewController easeEmotion:(EaseEmotion *)easeEmotion;
-		[Export ("emotionExtFormessageViewController:easeEmotion:")]
+		[NullAllowed, Export ("emotionExtFormessageViewController:easeEmotion:")]
 		NSDictionary EmotionExtFormessageViewController_easeEmotion (EaseMessageViewController viewController, EaseEmotion easeEmotion);
 
 		// @optional -(void)messageViewControllerMarkAllMessagesAsRead:(EaseMessageViewController *)viewController;
@@ -2771,7 +2771,7 @@ namespace Hyphenate.iOS.UI
         NSObject WeakDataSource { get; set; }
 
 		// @property (nonatomic, strong) EMConversation * conversation;
-		[Export ("conversation", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("conversation", ArgumentSemantic.Strong)]
 		EMConversation Conversation { get; set; }
 
 		// @property (nonatomic) NSTimeInterval messageTimeIntervalTag;
@@ -2799,35 +2799,35 @@ namespace Hyphenate.iOS.UI
 		nfloat TimeCellHeight { get; set; }
 
 		// @property (nonatomic, strong) NSMutableArray * messsagesSource;
-		[Export ("messsagesSource", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("messsagesSource", ArgumentSemantic.Strong)]
 		NSMutableArray MesssagesSource { get; set; }
 
 		// @property (nonatomic, strong) UIView * chatToolbar;
-		[Export ("chatToolbar", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("chatToolbar", ArgumentSemantic.Strong)]
 		UIView ChatToolbar { get; set; }
 
 		// @property (nonatomic, strong) EaseChatBarMoreView * chatBarMoreView;
-		[Export ("chatBarMoreView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("chatBarMoreView", ArgumentSemantic.Strong)]
 		EaseChatBarMoreView ChatBarMoreView { get; set; }
 
 		// @property (nonatomic, strong) EaseFaceView * faceView;
-		[Export ("faceView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("faceView", ArgumentSemantic.Strong)]
 		EaseFaceView FaceView { get; set; }
 
 		// @property (nonatomic, strong) EaseRecordView * recordView;
-		[Export ("recordView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("recordView", ArgumentSemantic.Strong)]
 		EaseRecordView RecordView { get; set; }
 
 		// @property (nonatomic, strong) UIMenuController * menuController;
-		[Export ("menuController", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("menuController", ArgumentSemantic.Strong)]
 		UIMenuController MenuController { get; set; }
 
 		// @property (nonatomic, strong) NSIndexPath * menuIndexPath;
-		[Export ("menuIndexPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("menuIndexPath", ArgumentSemantic.Strong)]
 		NSIndexPath MenuIndexPath { get; set; }
 
 		// @property (nonatomic, strong) UIImagePickerController * imagePicker;
-		[Export ("imagePicker", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("imagePicker", ArgumentSemantic.Strong)]
 		UIImagePickerController ImagePicker { get; set; }
 
 		// @property (nonatomic) BOOL isJoinedChatroom;
@@ -2901,22 +2901,22 @@ namespace Hyphenate.iOS.UI
 	{
 		// @required @property (readonly, nonatomic, strong) NSString * buddy;
 		[Abstract]
-		[Export ("buddy", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("buddy", ArgumentSemantic.Strong)]
 		string Buddy { get; }
 
 		// @required @property (nonatomic, strong) NSString * nickname;
 		[Abstract]
-		[Export ("nickname", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("nickname", ArgumentSemantic.Strong)]
 		string Nickname { get; set; }
 
 		// @required @property (nonatomic, strong) NSString * avatarURLPath;
 		[Abstract]
-		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarURLPath", ArgumentSemantic.Strong)]
 		string AvatarURLPath { get; set; }
 
 		// @required @property (nonatomic, strong) UIImage * avatarImage;
 		[Abstract]
-		[Export ("avatarImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarImage", ArgumentSemantic.Strong)]
 		UIImage AvatarImage { get; set; }
 
 		// @required -(instancetype)initWithBuddy:(NSString *)buddy;
@@ -2930,19 +2930,19 @@ namespace Hyphenate.iOS.UI
 	interface EaseUserModel : IUserModel
 	{
 		// @property (readonly, nonatomic, strong) NSString * buddy;
-		[Export ("buddy", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("buddy", ArgumentSemantic.Strong)]
 		new string Buddy { get; }
 
 		// @property (nonatomic, strong) NSString * nickname;
-		[Export ("nickname", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("nickname", ArgumentSemantic.Strong)]
 		new string Nickname { get; set; }
 
 		// @property (nonatomic, strong) NSString * avatarURLPath;
-		[Export ("avatarURLPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarURLPath", ArgumentSemantic.Strong)]
 		new string AvatarURLPath { get; set; }
 
 		// @property (nonatomic, strong) UIImage * avatarImage;
-		[Export ("avatarImage", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarImage", ArgumentSemantic.Strong)]
 		new UIImage AvatarImage { get; set; }
 
 		// -(instancetype)initWithBuddy:(NSString *)buddy;
@@ -2962,15 +2962,15 @@ namespace Hyphenate.iOS.UI
 		NSObject WeakDelegate { get; set; }
 
 		// @property (nonatomic, strong) EaseImageView * avatarView;
-		[Export ("avatarView", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("avatarView", ArgumentSemantic.Strong)]
 		EaseImageView AvatarView { get; set; }
 
 		// @property (nonatomic, strong) UILabel * titleLabel;
-		[Export ("titleLabel", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("titleLabel", ArgumentSemantic.Strong)]
 		UILabel TitleLabel { get; set; }
 
 		// @property (nonatomic, strong) id<IUserModel> model;
-		[Export ("model", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("model", ArgumentSemantic.Strong)]
 		new IIUserModel Model { get; set; }
 
 		// @property (nonatomic) BOOL showAvatar;
@@ -2978,15 +2978,15 @@ namespace Hyphenate.iOS.UI
 		bool ShowAvatar { get; set; }
 
 		// @property (nonatomic, strong) NSIndexPath * indexPath;
-		[Export ("indexPath", ArgumentSemantic.Strong)]
+		[NullAllowed, Export ("indexPath", ArgumentSemantic.Strong)]
 		NSIndexPath IndexPath { get; set; }
 
 		// @property (nonatomic) UIFont * titleLabelFont __attribute__((annotate("ui_appearance_selector")));
-		[Export ("titleLabelFont", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("titleLabelFont", ArgumentSemantic.Assign)]
 		UIFont TitleLabelFont { get; set; }
 
 		// @property (nonatomic) UIColor * titleLabelColor __attribute__((annotate("ui_appearance_selector")));
-		[Export ("titleLabelColor", ArgumentSemantic.Assign)]
+		[NullAllowed, Export ("titleLabelColor", ArgumentSemantic.Assign)]
 		UIColor TitleLabelColor { get; set; }
 
         // -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
@@ -3036,11 +3036,11 @@ namespace Hyphenate.iOS.UI
 		nint NumberOfRowInUserListViewController (EaseUsersListViewController userListViewController);
 
 		// @optional -(id<IUserModel>)userListViewController:(EaseUsersListViewController *)userListViewController modelForBuddy:(NSString *)buddy;
-		[Export ("userListViewController:modelForBuddy:")]
+		[NullAllowed, Export ("userListViewController:modelForBuddy:")]
 		IIUserModel UserListViewController (EaseUsersListViewController userListViewController, string buddy);
 
 		// @optional -(id<IUserModel>)userListViewController:(EaseUsersListViewController *)userListViewController userModelForIndexPath:(NSIndexPath *)indexPath;
-		[Export ("userListViewController:userModelForIndexPath:")]
+		[NullAllowed, Export ("userListViewController:userModelForIndexPath:")]
 		IIUserModel UserListViewController (EaseUsersListViewController userListViewController, NSIndexPath indexPath);
 	}
 
@@ -3082,22 +3082,22 @@ namespace Hyphenate.iOS.UI
 	interface NSDate_Category
 	{
 		// -(NSString *)timeIntervalDescription;
-		[Export ("timeIntervalDescription")]
+		[NullAllowed, Export ("timeIntervalDescription")]
 		//[Verify (MethodToProperty)]
 		string TimeIntervalDescription ();
 
 		// -(NSString *)minuteDescription;
-		[Export ("minuteDescription")]
+		[NullAllowed, Export ("minuteDescription")]
 		//[Verify (MethodToProperty)]
 		string MinuteDescription ();
 
 		// -(NSString *)formattedTime;
-		[Export ("formattedTime")]
+		[NullAllowed, Export ("formattedTime")]
 		//[Verify (MethodToProperty)]
 		string FormattedTime ();
 
 		// -(NSString *)formattedDateDescription;
-		[Export ("formattedDateDescription")]
+		[NullAllowed, Export ("formattedDateDescription")]
 		//[Verify (MethodToProperty)]
 		string FormattedDateDescription ();
 
@@ -3108,54 +3108,54 @@ namespace Hyphenate.iOS.UI
 
 		// +(NSDate *)dateWithTimeIntervalInMilliSecondSince1970:(double)timeIntervalInMilliSecond;
 		[Static]
-		[Export ("dateWithTimeIntervalInMilliSecondSince1970:")]
+		[NullAllowed, Export ("dateWithTimeIntervalInMilliSecondSince1970:")]
 		NSDate DateWithTimeIntervalInMilliSecondSince1970 (double timeIntervalInMilliSecond);
 
 		// +(NSString *)formattedTimeFromTimeInterval:(long long)time;
 		[Static]
-		[Export ("formattedTimeFromTimeInterval:")]
+		[NullAllowed, Export ("formattedTimeFromTimeInterval:")]
 		string FormattedTimeFromTimeInterval (long time);
 
 		// +(NSDate *)dateTomorrow;
 		[Static]
-		[Export ("dateTomorrow")]
+		[NullAllowed, Export ("dateTomorrow")]
 		//[Verify (MethodToProperty)]
 		NSDate DateTomorrow ();
 
 		// +(NSDate *)dateYesterday;
 		[Static]
-		[Export ("dateYesterday")]
+		[NullAllowed, Export ("dateYesterday")]
 		//[Verify (MethodToProperty)]
 		NSDate DateYesterday ();
 
 		// +(NSDate *)dateWithDaysFromNow:(NSInteger)days;
 		[Static]
-		[Export ("dateWithDaysFromNow:")]
+		[NullAllowed, Export ("dateWithDaysFromNow:")]
 		NSDate DateWithDaysFromNow (nint days);
 
 		// +(NSDate *)dateWithDaysBeforeNow:(NSInteger)days;
 		[Static]
-		[Export ("dateWithDaysBeforeNow:")]
+		[NullAllowed, Export ("dateWithDaysBeforeNow:")]
 		NSDate DateWithDaysBeforeNow (nint days);
 
 		// +(NSDate *)dateWithHoursFromNow:(NSInteger)dHours;
 		[Static]
-		[Export ("dateWithHoursFromNow:")]
+		[NullAllowed, Export ("dateWithHoursFromNow:")]
 		NSDate DateWithHoursFromNow (nint dHours);
 
 		// +(NSDate *)dateWithHoursBeforeNow:(NSInteger)dHours;
 		[Static]
-		[Export ("dateWithHoursBeforeNow:")]
+		[NullAllowed, Export ("dateWithHoursBeforeNow:")]
 		NSDate DateWithHoursBeforeNow (nint dHours);
 
 		// +(NSDate *)dateWithMinutesFromNow:(NSInteger)dMinutes;
 		[Static]
-		[Export ("dateWithMinutesFromNow:")]
+		[NullAllowed, Export ("dateWithMinutesFromNow:")]
 		NSDate DateWithMinutesFromNow (nint dMinutes);
 
 		// +(NSDate *)dateWithMinutesBeforeNow:(NSInteger)dMinutes;
 		[Static]
-		[Export ("dateWithMinutesBeforeNow:")]
+		[NullAllowed, Export ("dateWithMinutesBeforeNow:")]
 		NSDate DateWithMinutesBeforeNow (nint dMinutes);
 
 		// -(BOOL)isEqualToDateIgnoringTime:(NSDate *)aDate;
@@ -3253,31 +3253,31 @@ namespace Hyphenate.iOS.UI
 		bool IsTypicallyWeekend ();
 
 		// -(NSDate *)dateByAddingDays:(NSInteger)dDays;
-		[Export ("dateByAddingDays:")]
+		[NullAllowed, Export ("dateByAddingDays:")]
 		NSDate DateByAddingDays (nint dDays);
 
 		// -(NSDate *)dateBySubtractingDays:(NSInteger)dDays;
-		[Export ("dateBySubtractingDays:")]
+		[NullAllowed, Export ("dateBySubtractingDays:")]
 		NSDate DateBySubtractingDays (nint dDays);
 
 		// -(NSDate *)dateByAddingHours:(NSInteger)dHours;
-		[Export ("dateByAddingHours:")]
+		[NullAllowed, Export ("dateByAddingHours:")]
 		NSDate DateByAddingHours (nint dHours);
 
 		// -(NSDate *)dateBySubtractingHours:(NSInteger)dHours;
-		[Export ("dateBySubtractingHours:")]
+		[NullAllowed, Export ("dateBySubtractingHours:")]
 		NSDate DateBySubtractingHours (nint dHours);
 
 		// -(NSDate *)dateByAddingMinutes:(NSInteger)dMinutes;
-		[Export ("dateByAddingMinutes:")]
+		[NullAllowed, Export ("dateByAddingMinutes:")]
 		NSDate DateByAddingMinutes (nint dMinutes);
 
 		// -(NSDate *)dateBySubtractingMinutes:(NSInteger)dMinutes;
-		[Export ("dateBySubtractingMinutes:")]
+		[NullAllowed, Export ("dateBySubtractingMinutes:")]
 		NSDate DateBySubtractingMinutes (nint dMinutes);
 
 		// -(NSDate *)dateAtStartOfDay;
-		[Export ("dateAtStartOfDay")]
+		[NullAllowed, Export ("dateAtStartOfDay")]
 		//[Verify (MethodToProperty)]
 		NSDate DateAtStartOfDay ();
 
@@ -3384,18 +3384,18 @@ namespace Hyphenate.iOS.UI
 	{
 		// +(id)dateFormatter;
 		[Static]
-		[Export ("dateFormatter")]
+		[NullAllowed, Export ("dateFormatter")]
 		//[Verify (MethodToProperty)]
 		NSObject DateFormatter { get; }
 
 		// +(id)dateFormatterWithFormat:(NSString *)dateFormat;
 		[Static]
-		[Export ("dateFormatterWithFormat:")]
+		[NullAllowed, Export ("dateFormatterWithFormat:")]
 		NSObject DateFormatterWithFormat (string dateFormat);
 
 		// +(id)defaultDateFormatter;
 		[Static]
-		[Export ("defaultDateFormatter")]
+		[NullAllowed, Export ("defaultDateFormatter")]
 		//[Verify (MethodToProperty)]
 		NSObject DefaultDateFormatter { get; }
 	}
