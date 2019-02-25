@@ -166,6 +166,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 - (void)hyphenateApplication:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [self _setupAppDelegateNotifications];
+    [self _registerRemoteNotification];
+}
+
+- (void)hyphenateApplication:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [[EMClient sharedClient] application:application didReceiveRemoteNotification:userInfo];
