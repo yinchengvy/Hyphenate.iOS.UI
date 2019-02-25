@@ -12,12 +12,12 @@
     <AssemblyName>Hyphenate.iOS.UI</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackageId>Hyphenate.iOS.UI</PackageId>
-    <PackageVersion>3.5.2.5</PackageVersion>
+    <PackageVersion>3.5.3.1</PackageVersion>
     <Authors>YinCheng</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <Owners>YinCheng</Owners>
     <PackageProjectUrl>https://github.com/yinchengvy/Hyphenate.iOS.UI.git</PackageProjectUrl>
-    <PackageReleaseNotes>Hyphenate EaseUI Library v3.5.4
+    <PackageReleaseNotes>Hyphenate EaseUI Library v3.5.3
 
 1. 添加WeakDataSource
 2. 解决UITableViewCell没有 "initWithStyle:reuseIdentifier"构造方法
@@ -25,7 +25,7 @@
 4. 解决一些协议Protocol无法被类对象进行转换的问题</PackageReleaseNotes>
     <PackageTags>Xamarin.iOS, Hyphenate, EaseUI</PackageTags>
     <Title>Hyphenate.iOS.UI</Title>
-    <Description>Xamarin Binding for Hyphenate EaseUI 3.5.2(5)
+    <Description>Xamarin Binding for Hyphenate EaseUI 3.5.3
 架构支持x86_64 arm64
 
 - 添加NullAllowed修饰
@@ -38,10 +38,8 @@ Note:
 
 修改.csproj，添加
 &lt;Target Name="BeforeCodesign"&gt;
-    &lt;Exec Condition=" '$(Platform)' == 'iPhone' Command="\usr\bin\codesign -v --force --sign $(_CodeSigningKey) --timestamp=none $(ProjectDir)/$(AppBundleDir)/Frameworks/UmbrellaFramework.framework/Frameworks/SubFramework.framework/SubFramework" /&gt;
-&lt;/Target&gt;
-
-</Description>
+    &lt;Exec Condition=" 'AnyCPU' == 'iPhone' Command="\usr\bin\codesign -v --force --sign  --timestamp=none //Frameworks/UmbrellaFramework.framework/Frameworks/SubFramework.framework/SubFramework" /&gt;
+&lt;/Target&gt;</Description>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -74,7 +72,7 @@ Note:
       <HintPath>..\packages\Ricardo.MWPhotoBrowser.iOS.2.1.4.1\lib\Xamarin.iOS10\Ricardo.MWPhotoBrowser.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Hyphenate.iOS">
-      <HintPath>..\packages\Hyphenate.iOS.Lib.3.5.2.3\lib\xamarinios10\Hyphenate.iOS.dll</HintPath>
+      <HintPath>..\packages\Hyphenate.iOS.Lib.3.5.3\lib\xamarinios10\Hyphenate.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

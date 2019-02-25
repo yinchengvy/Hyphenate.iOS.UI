@@ -47,6 +47,15 @@
  @brief 注册3.xSDK，注册远程通知
  @param application     UIApplication对象
  @param launchOptions   启动配置(传入AppDelegate中启动回调的参数，可选)
+ */
+- (void)hyphenateApplication:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+
+/*!
+ @method
+ @brief 注册3.xSDK，注册远程通知
+ @param application     UIApplication对象
+ @param launchOptions   启动配置(传入AppDelegate中启动回调的参数，可选)
  @param appkey          已注册的appkey
  @param apnsCertName    上传的推送证书名
  @param otherConfig     注册SDK的额外配置(此方法目前只解析了kSDKConfigEnableConsoleLogger字段)
@@ -55,7 +64,7 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                     appkey:(NSString *)appkey
               apnsCertName:(NSString *)apnsCertName
-               otherConfig:(NSDictionary *)otherConfig;
+               otherConfig:(NSDictionary *)otherConfig DEPRECATED_MSG_ATTRIBUTE("Use hyphenateApplication:didFinishLaunchingWithOptions method instead. Deprecated on 3.5.3.");;
 
 #pragma mark - receive remote notification
 

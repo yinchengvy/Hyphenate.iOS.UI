@@ -2582,13 +2582,17 @@ namespace Hyphenate.iOS.UI
 		[NullAllowed, Export ("shareHelper")]
 		EaseSDKHelper ShareHelper ();
 
+        // -(void)hyphenateApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+		[Export ("hyphenateApplication:didFinishLaunchingWithOptions:")]
+		void HyphenateApplication_didFinishLaunchingWithOptions ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions);
+
 		// -(void)hyphenateApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions appkey:(NSString *)appkey apnsCertName:(NSString *)apnsCertName otherConfig:(NSDictionary *)otherConfig;
 		[Export ("hyphenateApplication:didFinishLaunchingWithOptions:appkey:apnsCertName:otherConfig:")]
-		void HyphenateApplication ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions, string appkey, string apnsCertName, [NullAllowed] NSDictionary otherConfig);
+        void HyphenateApplication_didFinishLaunchingWithOptions_appkey_apnsCertName_otherConfig ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions, string appkey, string apnsCertName, [NullAllowed] NSDictionary otherConfig);
 
 		// -(void)hyphenateApplication:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;
 		[Export ("hyphenateApplication:didReceiveRemoteNotification:")]
-		void HyphenateApplication ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary userInfo);
+		void HyphenateApplication_didReceiveRemoteNotification ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary userInfo);
 
 		// +(EMMessage *)getTextMessage:(NSString *)text to:(NSString *)to messageType:(int)messageType messageExt:(NSDictionary *)messageExt;
 		[Static]
@@ -2833,6 +2837,10 @@ namespace Hyphenate.iOS.UI
 		// @property (nonatomic) BOOL isJoinedChatroom;
 		[Export ("isJoinedChatroom")]
 		bool IsJoinedChatroom { get; set; }
+
+        // @property (nonatomic) BOOL isTyping;
+        [Export ("isTyping")]
+        bool IsTyping { get; set; }
 
 		// -(instancetype)initWithConversationChatter:(NSString *)conversationChatter conversationType:(int)conversationType;
 		[Export ("initWithConversationChatter:conversationType:")]

@@ -12,9 +12,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "IMessageModel.h"
 
 /** @brief 消息模型 */
-@protocol IMessageModel;
 @class EMMessage, EMMessageBody;
 
 @interface EaseMessageModel : NSObject<IMessageModel>
